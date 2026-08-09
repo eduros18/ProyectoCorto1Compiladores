@@ -564,8 +564,15 @@ int cont_booleanos = 0;
 int cont_cadenas = 0;
 int cont_operadores = 0;
 
-#line 567 "lex.yy.c"
-#line 568 "lex.yy.c"
+FILE *archivo_lexemas;
+
+void guardarLexema(char lexema[], char token[])
+{
+    fprintf(archivo_lexemas, "%s|%s|%d\n", lexema, token, linea);
+}
+
+#line 574 "lex.yy.c"
+#line 575 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -782,10 +789,10 @@ YY_DECL
 		}
 
 	{
-#line 17 "analizador.l"
+#line 24 "analizador.l"
 
 
-#line 788 "lex.yy.c"
+#line 795 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -844,489 +851,489 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 19 "analizador.l"
+#line 26 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_ABSTRACT");
 }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 25 "analizador.l"
+#line 32 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_CASE");
 }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 31 "analizador.l"
+#line 38 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_CATCH");
 }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 37 "analizador.l"
+#line 44 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_CLASS");
 }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 43 "analizador.l"
+#line 50 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_DEF");
 }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 49 "analizador.l"
+#line 56 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_DO");
 }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 55 "analizador.l"
+#line 62 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_ELSE");
 }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 61 "analizador.l"
+#line 68 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_EXTENDS");
 }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 67 "analizador.l"
+#line 74 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_FINAL");
 }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 73 "analizador.l"
+#line 80 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_FINALLY");
 }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 79 "analizador.l"
+#line 86 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_FOR");
 }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 85 "analizador.l"
+#line 92 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_IF");
 }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 91 "analizador.l"
+#line 98 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_IMPLICIT");
 }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 97 "analizador.l"
+#line 104 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_IMPORT");
 }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 103 "analizador.l"
+#line 110 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_LAZY");
 }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 109 "analizador.l"
+#line 116 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_MATCH");
 }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 115 "analizador.l"
+#line 122 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_NEW");
 }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 121 "analizador.l"
+#line 128 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_OBJECT");
 }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 127 "analizador.l"
+#line 134 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_OVERRIDE");
 }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 133 "analizador.l"
+#line 140 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_PACKAGE");
 }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 139 "analizador.l"
+#line 146 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_PRIVATE");
 }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 145 "analizador.l"
+#line 152 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_PROTECTED");
 }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 151 "analizador.l"
+#line 158 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_RETURN");
 }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 157 "analizador.l"
+#line 164 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_SEALED");
 }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 163 "analizador.l"
+#line 170 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_SUPER");
 }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 169 "analizador.l"
+#line 176 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_THIS");
 }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 175 "analizador.l"
+#line 182 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_THROW");
 }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 181 "analizador.l"
+#line 188 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_TRAIT");
 }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 187 "analizador.l"
+#line 194 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_TRY");
 }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 193 "analizador.l"
+#line 200 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_TYPE");
 }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 199 "analizador.l"
+#line 206 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_VAL");
 }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 205 "analizador.l"
+#line 212 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_VAR");
 }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 211 "analizador.l"
+#line 218 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_WHILE");
 }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 217 "analizador.l"
+#line 224 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_WITH");
 }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 223 "analizador.l"
+#line 230 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
-    printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "PR_YIELD");
 }
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 230 "analizador.l"
+#line 236 "analizador.l"
 {
     caracteres += yyleng;
     cont_booleanos++;
-    printf("%s -> BOOLEANO | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "BOOLEANO");
 }
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 237 "analizador.l"
+#line 242 "analizador.l"
 {
     caracteres += yyleng;
     cont_flotantes++;
-    printf("%s -> FLOTANTE | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "FLOTANTE");
 }
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 244 "analizador.l"
+#line 248 "analizador.l"
 {
     caracteres += yyleng;
     cont_enteros++;
-    printf("%s -> ENTERO | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "ENTERO");
 }
 	YY_BREAK
 case 39:
 /* rule 39 can match eol */
 YY_RULE_SETUP
-#line 251 "analizador.l"
+#line 254 "analizador.l"
 {
     caracteres += yyleng;
     cont_cadenas++;
-    printf("%s -> CADENA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "CADENA");
 }
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 258 "analizador.l"
+#line 260 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
-    printf("%s -> OP_IGUAL | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "OP_IGUAL");
 }
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 264 "analizador.l"
+#line 266 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
-    printf("%s -> OP_DIFERENTE | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "OP_DIFERENTE");
 }
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 270 "analizador.l"
+#line 272 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
-    printf("%s -> OP_MAYOR_IGUAL | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "OP_MAYOR_IGUAL");
 }
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 276 "analizador.l"
+#line 278 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
-    printf("%s -> OP_MENOR_IGUAL | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "OP_MENOR_IGUAL");
 }
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 282 "analizador.l"
+#line 284 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
-    printf("%s -> OP_AND | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "OP_AND");
 }
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 288 "analizador.l"
+#line 290 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
-    printf("%s -> OP_OR | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "OP_OR");
 }
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 294 "analizador.l"
+#line 296 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
-    printf("%s -> OP_SUMA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "OP_SUMA");
 }
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 300 "analizador.l"
+#line 302 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
-    printf("%s -> OP_RESTA | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "OP_RESTA");
 }
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 306 "analizador.l"
+#line 308 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
-    printf("%s -> OP_MULTIPLICACION | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "OP_MULTIPLICACION");
 }
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 312 "analizador.l"
+#line 314 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
-    printf("%s -> OP_DIVISION | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "OP_DIVISION");
 }
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 318 "analizador.l"
+#line 320 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
-    printf("%s -> OP_MODULO | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "OP_MODULO");
 }
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 324 "analizador.l"
+#line 326 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
-    printf("%s -> OP_ASIGNACION | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "OP_ASIGNACION");
 }
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 330 "analizador.l"
+#line 332 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
-    printf("%s -> OP_MAYOR | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "OP_MAYOR");
 }
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 336 "analizador.l"
+#line 338 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
-    printf("%s -> OP_MENOR | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "OP_MENOR");
 }
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 343 "analizador.l"
+#line 344 "analizador.l"
 {
     caracteres += yyleng;
     cont_identificadores++;
-    printf("%s -> IDENTIFICADOR | Linea: %d\n", yytext, linea);
+    guardarLexema(yytext, "IDENTIFICADOR");
 }
 	YY_BREAK
 case 55:
@@ -1340,24 +1347,24 @@ YY_RULE_SETUP
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
-#line 356 "analizador.l"
+#line 355 "analizador.l"
 {
     caracteres += yyleng;
 }
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
-#line 361 "analizador.l"
+#line 359 "analizador.l"
 {
     caracteres += yyleng;
 }
 	YY_BREAK
 case 58:
 YY_RULE_SETUP
-#line 365 "analizador.l"
+#line 363 "analizador.l"
 ECHO;
 	YY_BREAK
-#line 1360 "lex.yy.c"
+#line 1367 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2362,8 +2369,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 365 "analizador.l"
-
+#line 363 "analizador.l"
 
 
 int main(int argc, char *argv[])
@@ -2382,10 +2388,19 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    archivo_lexemas = fopen("lexemas.txt", "w");
+
+    if (archivo_lexemas == NULL)
+    {
+        printf("No se pudo crear lexemas.txt\n");
+        return 1;
+    }
+
+    fprintf(archivo_lexemas, "LEXEMA|TOKEN|LINEA\n");
+
     yylex();
 
     printf("\n========== RESULTADOS ==========\n");
-
     printf("Cantidad de lineas: %d\n", linea);
     printf("Cantidad de caracteres: %d\n", caracteres);
     printf("Palabras reservadas: %d\n", cont_reservadas);
@@ -2397,10 +2412,12 @@ int main(int argc, char *argv[])
     printf("Operadores: %d\n", cont_operadores);
 
     fclose(yyin);
+    fclose(archivo_lexemas);
+
+    printf("\nArchivo lexemas.txt generado correctamente\n");
 
     return 0;
 }
-
 
 int yywrap()
 {
