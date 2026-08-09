@@ -437,6 +437,18 @@ void mostrarReservadasOrdenadas()
     guardarLexema(yytext, "OP_OR");
 }
 
+"<-" {
+    caracteres += yyleng;
+    cont_operadores++;
+    guardarLexema(yytext, "OP_GENERADOR");
+}
+
+"=>" {
+    caracteres += yyleng;
+    cont_operadores++;
+    guardarLexema(yytext, "OP_FLECHA");
+}
+
 "+" {
     caracteres += yyleng;
     cont_operadores++;
@@ -536,6 +548,7 @@ int main(int argc, char *argv[])
     yylex();
 
     printf("\n========== RESULTADOS ==========\n");
+
     printf("Cantidad de lineas: %d\n", linea);
     printf("Cantidad de caracteres: %d\n", caracteres);
     printf("Palabras reservadas: %d\n", cont_reservadas);
