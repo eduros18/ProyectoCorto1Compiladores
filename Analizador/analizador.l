@@ -8,6 +8,8 @@ int cont_identificadores = 0;
 int cont_enteros = 0;
 int cont_flotantes = 0;
 int cont_booleanos = 0;
+int cont_cadenas = 0;
+int cont_operadores = 0;
 
 %}
 
@@ -64,6 +66,81 @@ int cont_booleanos = 0;
     printf("%s -> ENTERO | Linea: %d\n", yytext, linea);
 }
 
+\"[^\"]*\" {
+    cont_cadenas++;
+    printf("%s -> CADENA | Linea: %d\n", yytext, linea);
+}
+
+"==" {
+    cont_operadores++;
+    printf("%s -> OP_IGUAL | Linea: %d\n", yytext, linea);
+}
+
+"!=" {
+    cont_operadores++;
+    printf("%s -> OP_DIFERENTE | Linea: %d\n", yytext, linea);
+}
+
+">=" {
+    cont_operadores++;
+    printf("%s -> OP_MAYOR_IGUAL | Linea: %d\n", yytext, linea);
+}
+
+"<=" {
+    cont_operadores++;
+    printf("%s -> OP_MENOR_IGUAL | Linea: %d\n", yytext, linea);
+}
+
+"&&" {
+    cont_operadores++;
+    printf("%s -> OP_AND | Linea: %d\n", yytext, linea);
+}
+
+"||" {
+    cont_operadores++;
+    printf("%s -> OP_OR | Linea: %d\n", yytext, linea);
+}
+
+"+" {
+    cont_operadores++;
+    printf("%s -> OP_SUMA | Linea: %d\n", yytext, linea);
+}
+
+"-" {
+    cont_operadores++;
+    printf("%s -> OP_RESTA | Linea: %d\n", yytext, linea);
+}
+
+"*" {
+    cont_operadores++;
+    printf("%s -> OP_MULTIPLICACION | Linea: %d\n", yytext, linea);
+}
+
+"/" {
+    cont_operadores++;
+    printf("%s -> OP_DIVISION | Linea: %d\n", yytext, linea);
+}
+
+"%" {
+    cont_operadores++;
+    printf("%s -> OP_MODULO | Linea: %d\n", yytext, linea);
+}
+
+"=" {
+    cont_operadores++;
+    printf("%s -> OP_ASIGNACION | Linea: %d\n", yytext, linea);
+}
+
+">" {
+    cont_operadores++;
+    printf("%s -> OP_MAYOR | Linea: %d\n", yytext, linea);
+}
+
+"<" {
+    cont_operadores++;
+    printf("%s -> OP_MENOR | Linea: %d\n", yytext, linea);
+}
+
 [a-zA-Z_][a-zA-Z0-9_]* {
     cont_identificadores++;
     printf("%s -> IDENTIFICADOR | Linea: %d\n", yytext, linea);
@@ -103,6 +180,8 @@ int main(int argc, char *argv[])
     printf("Enteros: %d\n", cont_enteros);
     printf("Flotantes: %d\n", cont_flotantes);
     printf("Booleanos: %d\n", cont_booleanos);
+    printf("Cadenas: %d\n", cont_cadenas);
+    printf("Operadores: %d\n", cont_operadores);
 
     fclose(yyin);
 
