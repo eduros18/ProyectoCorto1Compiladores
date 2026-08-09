@@ -2,7 +2,12 @@
 #include <stdio.h>
 
 int linea = 1;
+
 int cont_reservadas = 0;
+int cont_identificadores = 0;
+int cont_enteros = 0;
+int cont_flotantes = 0;
+int cont_booleanos = 0;
 
 %}
 
@@ -44,9 +49,32 @@ int cont_reservadas = 0;
 "with"          { cont_reservadas++; printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea); }
 "yield"         { cont_reservadas++; printf("%s -> PALABRA RESERVADA | Linea: %d\n", yytext, linea); }
 
-\n              { linea++; }
+"true"|"false" {
+    cont_booleanos++;
+    printf("%s -> BOOLEANO | Linea: %d\n", yytext, linea);
+}
 
-.               {}
+[0-9]+\.[0-9]+ {
+    cont_flotantes++;
+    printf("%s -> FLOTANTE | Linea: %d\n", yytext, linea);
+}
+
+[0-9]+ {
+    cont_enteros++;
+    printf("%s -> ENTERO | Linea: %d\n", yytext, linea);
+}
+
+[a-zA-Z_][a-zA-Z0-9_]* {
+    cont_identificadores++;
+    printf("%s -> IDENTIFICADOR | Linea: %d\n", yytext, linea);
+}
+
+\n {
+    linea++;
+}
+
+. {
+}
 
 %%
 
@@ -68,8 +96,13 @@ int main(int argc, char *argv[])
 
     yylex();
 
-    printf("\nCantidad de lineas: %d\n", linea);
-    printf("Cantidad de palabras reservadas: %d\n", cont_reservadas);
+    printf("\n========== RESULTADOS ==========\n");
+    printf("Cantidad de lineas: %d\n", linea);
+    printf("Palabras reservadas: %d\n", cont_reservadas);
+    printf("Identificadores: %d\n", cont_identificadores);
+    printf("Enteros: %d\n", cont_enteros);
+    printf("Flotantes: %d\n", cont_flotantes);
+    printf("Booleanos: %d\n", cont_booleanos);
 
     fclose(yyin);
 
