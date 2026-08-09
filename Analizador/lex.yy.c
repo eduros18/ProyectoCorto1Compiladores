@@ -960,12 +960,22 @@ case 2:
 YY_RULE_SETUP
 #line 121 "analizador.l"
 {
+    int i;
+
     caracteres += yyleng;
+
+    for (i = 0; i < yyleng; i++)
+    {
+        if (yytext[i] == '\n')
+        {
+            linea++;
+        }
+    }
 }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 125 "analizador.l"
+#line 135 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -975,7 +985,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 132 "analizador.l"
+#line 142 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -985,7 +995,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 139 "analizador.l"
+#line 149 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -995,7 +1005,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 146 "analizador.l"
+#line 156 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1005,7 +1015,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 153 "analizador.l"
+#line 163 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1015,7 +1025,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 160 "analizador.l"
+#line 170 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1025,7 +1035,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 167 "analizador.l"
+#line 177 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1035,7 +1045,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 174 "analizador.l"
+#line 184 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1045,7 +1055,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 181 "analizador.l"
+#line 191 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1055,7 +1065,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 188 "analizador.l"
+#line 198 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1065,7 +1075,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 195 "analizador.l"
+#line 205 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1075,7 +1085,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 202 "analizador.l"
+#line 212 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1085,7 +1095,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 209 "analizador.l"
+#line 219 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1095,7 +1105,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 216 "analizador.l"
+#line 226 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1105,7 +1115,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 223 "analizador.l"
+#line 233 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1115,7 +1125,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 230 "analizador.l"
+#line 240 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1125,7 +1135,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 237 "analizador.l"
+#line 247 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1135,7 +1145,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 244 "analizador.l"
+#line 254 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1145,7 +1155,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 251 "analizador.l"
+#line 261 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1155,7 +1165,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 258 "analizador.l"
+#line 268 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1165,7 +1175,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 265 "analizador.l"
+#line 275 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1175,7 +1185,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 272 "analizador.l"
+#line 282 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1185,7 +1195,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 279 "analizador.l"
+#line 289 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1195,7 +1205,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 286 "analizador.l"
+#line 296 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1205,7 +1215,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 293 "analizador.l"
+#line 303 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1215,7 +1225,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 300 "analizador.l"
+#line 310 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1225,7 +1235,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 307 "analizador.l"
+#line 317 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1235,7 +1245,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 314 "analizador.l"
+#line 324 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1245,7 +1255,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 321 "analizador.l"
+#line 331 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1255,7 +1265,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 328 "analizador.l"
+#line 338 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1265,7 +1275,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 335 "analizador.l"
+#line 345 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1275,7 +1285,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 342 "analizador.l"
+#line 352 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1285,7 +1295,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 349 "analizador.l"
+#line 359 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1295,7 +1305,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 356 "analizador.l"
+#line 366 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1305,7 +1315,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 363 "analizador.l"
+#line 373 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1315,7 +1325,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 370 "analizador.l"
+#line 380 "analizador.l"
 {
     caracteres += yyleng;
     cont_booleanos++;
@@ -1324,7 +1334,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 376 "analizador.l"
+#line 386 "analizador.l"
 {
     caracteres += yyleng;
     cont_flotantes++;
@@ -1333,7 +1343,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 382 "analizador.l"
+#line 392 "analizador.l"
 {
     caracteres += yyleng;
     cont_enteros++;
@@ -1343,7 +1353,7 @@ YY_RULE_SETUP
 case 41:
 /* rule 41 can match eol */
 YY_RULE_SETUP
-#line 388 "analizador.l"
+#line 398 "analizador.l"
 {
     caracteres += yyleng;
     cont_cadenas++;
@@ -1352,7 +1362,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 394 "analizador.l"
+#line 404 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1361,7 +1371,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 400 "analizador.l"
+#line 410 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1370,7 +1380,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 406 "analizador.l"
+#line 416 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1379,7 +1389,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 412 "analizador.l"
+#line 422 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1388,7 +1398,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 418 "analizador.l"
+#line 428 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1397,7 +1407,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 424 "analizador.l"
+#line 434 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1406,7 +1416,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 430 "analizador.l"
+#line 440 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1415,7 +1425,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 436 "analizador.l"
+#line 446 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1424,7 +1434,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 442 "analizador.l"
+#line 452 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1433,7 +1443,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 448 "analizador.l"
+#line 458 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1442,7 +1452,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 454 "analizador.l"
+#line 464 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1451,7 +1461,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 460 "analizador.l"
+#line 470 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1460,7 +1470,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 466 "analizador.l"
+#line 476 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1469,7 +1479,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 472 "analizador.l"
+#line 482 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1478,7 +1488,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
-#line 478 "analizador.l"
+#line 488 "analizador.l"
 {
     caracteres += yyleng;
     cont_identificadores++;
@@ -1488,7 +1498,7 @@ YY_RULE_SETUP
 case 57:
 /* rule 57 can match eol */
 YY_RULE_SETUP
-#line 484 "analizador.l"
+#line 494 "analizador.l"
 {
     caracteres++;
     linea++;
@@ -1496,24 +1506,24 @@ YY_RULE_SETUP
 	YY_BREAK
 case 58:
 YY_RULE_SETUP
-#line 489 "analizador.l"
+#line 499 "analizador.l"
 {
     caracteres += yyleng;
 }
 	YY_BREAK
 case 59:
 YY_RULE_SETUP
-#line 493 "analizador.l"
+#line 503 "analizador.l"
 {
     caracteres += yyleng;
 }
 	YY_BREAK
 case 60:
 YY_RULE_SETUP
-#line 497 "analizador.l"
+#line 507 "analizador.l"
 ECHO;
 	YY_BREAK
-#line 1516 "lex.yy.c"
+#line 1526 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2518,7 +2528,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 497 "analizador.l"
+#line 507 "analizador.l"
 
 
 int main(int argc, char *argv[])

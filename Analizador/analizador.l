@@ -119,7 +119,17 @@ void mostrarReservadasOrdenadas()
 }
 
 "/*"([^*]|\*+[^*/])*\*+"/" {
+    int i;
+
     caracteres += yyleng;
+
+    for (i = 0; i < yyleng; i++)
+    {
+        if (yytext[i] == '\n')
+        {
+            linea++;
+        }
+    }
 }
 
 "abstract" {
