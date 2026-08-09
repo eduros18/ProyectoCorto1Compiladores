@@ -54,6 +54,62 @@ void guardarLexema(char lexema[], char token[])
 {
     fprintf(archivo_lexemas, "%s|%s|%d\n", lexema, token, linea);
 }
+
+void mostrarReservadasOrdenadas()
+{
+    char *nombres[] = {
+        "abstract", "case", "catch", "class", "def",
+        "do", "else", "extends", "final", "finally",
+        "for", "if", "implicit", "import", "lazy",
+        "match", "new", "object", "override", "package",
+        "private", "protected", "return", "sealed", "super",
+        "this", "throw", "trait", "try", "type",
+        "val", "var", "while", "with", "yield"
+    };
+
+    int cantidades[] = {
+        pr_abstract, pr_case, pr_catch, pr_class, pr_def,
+        pr_do, pr_else, pr_extends, pr_final, pr_finally,
+        pr_for, pr_if, pr_implicit, pr_import, pr_lazy,
+        pr_match, pr_new, pr_object, pr_override, pr_package,
+        pr_private, pr_protected, pr_return, pr_sealed, pr_super,
+        pr_this, pr_throw, pr_trait, pr_try, pr_type,
+        pr_val, pr_var, pr_while, pr_with, pr_yield
+    };
+
+    int total = 35;
+    int i;
+    int j;
+    int tempCantidad;
+    char *tempNombre;
+
+    for (i = 0; i < total - 1; i++)
+    {
+        for (j = 0; j < total - i - 1; j++)
+        {
+            if (cantidades[j] < cantidades[j + 1])
+            {
+                tempCantidad = cantidades[j];
+                cantidades[j] = cantidades[j + 1];
+                cantidades[j + 1] = tempCantidad;
+
+                tempNombre = nombres[j];
+                nombres[j] = nombres[j + 1];
+                nombres[j + 1] = tempNombre;
+            }
+        }
+    }
+
+    printf("\n===== PALABRAS RESERVADAS =====\n");
+
+    for (i = 0; i < total; i++)
+    {
+        if (cantidades[i] > 0)
+        {
+            printf("%s: %d\n", nombres[i], cantidades[i]);
+        }
+    }
+}
 %}
 
 %%
@@ -470,7 +526,6 @@ int main(int argc, char *argv[])
     yylex();
 
     printf("\n========== RESULTADOS ==========\n");
-
     printf("Cantidad de lineas: %d\n", linea);
     printf("Cantidad de caracteres: %d\n", caracteres);
     printf("Palabras reservadas: %d\n", cont_reservadas);
@@ -481,43 +536,7 @@ int main(int argc, char *argv[])
     printf("Cadenas: %d\n", cont_cadenas);
     printf("Operadores: %d\n", cont_operadores);
 
-    printf("\n===== PALABRAS RESERVADAS =====\n");
-
-    if (pr_abstract > 0) printf("abstract: %d\n", pr_abstract);
-    if (pr_case > 0) printf("case: %d\n", pr_case);
-    if (pr_catch > 0) printf("catch: %d\n", pr_catch);
-    if (pr_class > 0) printf("class: %d\n", pr_class);
-    if (pr_def > 0) printf("def: %d\n", pr_def);
-    if (pr_do > 0) printf("do: %d\n", pr_do);
-    if (pr_else > 0) printf("else: %d\n", pr_else);
-    if (pr_extends > 0) printf("extends: %d\n", pr_extends);
-    if (pr_final > 0) printf("final: %d\n", pr_final);
-    if (pr_finally > 0) printf("finally: %d\n", pr_finally);
-    if (pr_for > 0) printf("for: %d\n", pr_for);
-    if (pr_if > 0) printf("if: %d\n", pr_if);
-    if (pr_implicit > 0) printf("implicit: %d\n", pr_implicit);
-    if (pr_import > 0) printf("import: %d\n", pr_import);
-    if (pr_lazy > 0) printf("lazy: %d\n", pr_lazy);
-    if (pr_match > 0) printf("match: %d\n", pr_match);
-    if (pr_new > 0) printf("new: %d\n", pr_new);
-    if (pr_object > 0) printf("object: %d\n", pr_object);
-    if (pr_override > 0) printf("override: %d\n", pr_override);
-    if (pr_package > 0) printf("package: %d\n", pr_package);
-    if (pr_private > 0) printf("private: %d\n", pr_private);
-    if (pr_protected > 0) printf("protected: %d\n", pr_protected);
-    if (pr_return > 0) printf("return: %d\n", pr_return);
-    if (pr_sealed > 0) printf("sealed: %d\n", pr_sealed);
-    if (pr_super > 0) printf("super: %d\n", pr_super);
-    if (pr_this > 0) printf("this: %d\n", pr_this);
-    if (pr_throw > 0) printf("throw: %d\n", pr_throw);
-    if (pr_trait > 0) printf("trait: %d\n", pr_trait);
-    if (pr_try > 0) printf("try: %d\n", pr_try);
-    if (pr_type > 0) printf("type: %d\n", pr_type);
-    if (pr_val > 0) printf("val: %d\n", pr_val);
-    if (pr_var > 0) printf("var: %d\n", pr_var);
-    if (pr_while > 0) printf("while: %d\n", pr_while);
-    if (pr_with > 0) printf("with: %d\n", pr_with);
-    if (pr_yield > 0) printf("yield: %d\n", pr_yield);
+    mostrarReservadasOrdenadas();
 
     fclose(yyin);
     fclose(archivo_lexemas);
