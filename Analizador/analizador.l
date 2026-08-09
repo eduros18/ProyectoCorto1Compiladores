@@ -1,5 +1,6 @@
 %{
 #include <stdio.h>
+#include <string.h>
 
 int linea = 1;
 int caracteres = 0;
@@ -53,11 +54,24 @@ int pr_while = 0;
 int pr_with = 0;
 int pr_yield = 0;
 
-FILE *archivo_lexemas;
+#define MAX_LEXEMAS 2000
+
+char lexemas[MAX_LEXEMAS][150];
+char tokens[MAX_LEXEMAS][50];
+int lineasLexemas[MAX_LEXEMAS];
+
+int cantidadLexemas = 0;
 
 void guardarLexema(char lexema[], char token[])
 {
-    fprintf(archivo_lexemas, "%s|%s|%d\n", lexema, token, linea);
+    if (cantidadLexemas < MAX_LEXEMAS)
+    {
+        strcpy(lexemas[cantidadLexemas], lexema);
+        strcpy(tokens[cantidadLexemas], token);
+        lineasLexemas[cantidadLexemas] = linea;
+
+        cantidadLexemas++;
+    }
 }
 
 void mostrarReservadasOrdenadas()
@@ -116,6 +130,204 @@ void mostrarReservadasOrdenadas()
             printf("%s: %d\n", nombres[i], cantidades[i]);
         }
     }
+}
+
+void imprimirEncabezado(FILE *archivo, char titulo[])
+{
+    fprintf(archivo, "\n");
+    fprintf(archivo, "============================================================\n");
+    fprintf(archivo, "%s\n", titulo);
+    fprintf(archivo, "============================================================\n\n");
+
+    fprintf(
+        archivo,
+        "%-25s %-25s %-10s\n",
+        "LEXEMA",
+        "TOKEN",
+        "LINEA"
+    );
+
+    fprintf(
+        archivo,
+        "------------------------------------------------------------\n"
+    );
+}
+
+void generarArchivoLexemas()
+{
+    FILE *archivo;
+    int i;
+
+    archivo = fopen("lexemas.txt", "w");
+
+    if (archivo == NULL)
+    {
+        printf("No se pudo crear lexemas.txt\n");
+        return;
+    }
+
+    fprintf(
+        archivo,
+        "============================================================\n"
+    );
+
+    fprintf(
+        archivo,
+        "              RESULTADO DEL ANALISIS LEXICO\n"
+    );
+
+    fprintf(
+        archivo,
+        "============================================================\n"
+    );
+
+    fprintf(archivo, "\nRESUMEN\n");
+    fprintf(archivo, "------------------------------------------------------------\n");
+
+    fprintf(archivo, "Lineas: %d\n", linea);
+    fprintf(archivo, "Caracteres: %d\n", caracteres);
+    fprintf(archivo, "Palabras reservadas: %d\n", cont_reservadas);
+    fprintf(archivo, "Identificadores: %d\n", cont_identificadores);
+    fprintf(archivo, "Enteros: %d\n", cont_enteros);
+    fprintf(archivo, "Flotantes: %d\n", cont_flotantes);
+    fprintf(archivo, "Booleanos: %d\n", cont_booleanos);
+    fprintf(archivo, "Cadenas: %d\n", cont_cadenas);
+    fprintf(archivo, "Operadores: %d\n", cont_operadores);
+
+    imprimirEncabezado(
+        archivo,
+        "PALABRAS RESERVADAS"
+    );
+
+    for (i = 0; i < cantidadLexemas; i++)
+    {
+        if (strncmp(tokens[i], "PR_", 3) == 0)
+        {
+            fprintf(
+                archivo,
+                "%-25s %-25s %-10d\n",
+                lexemas[i],
+                tokens[i],
+                lineasLexemas[i]
+            );
+        }
+    }
+
+    imprimirEncabezado(
+        archivo,
+        "IDENTIFICADORES"
+    );
+
+    for (i = 0; i < cantidadLexemas; i++)
+    {
+        if (strcmp(tokens[i], "IDENTIFICADOR") == 0)
+        {
+            fprintf(
+                archivo,
+                "%-25s %-25s %-10d\n",
+                lexemas[i],
+                tokens[i],
+                lineasLexemas[i]
+            );
+        }
+    }
+
+    imprimirEncabezado(
+        archivo,
+        "NUMEROS ENTEROS"
+    );
+
+    for (i = 0; i < cantidadLexemas; i++)
+    {
+        if (strcmp(tokens[i], "ENTERO") == 0)
+        {
+            fprintf(
+                archivo,
+                "%-25s %-25s %-10d\n",
+                lexemas[i],
+                tokens[i],
+                lineasLexemas[i]
+            );
+        }
+    }
+
+    imprimirEncabezado(
+        archivo,
+        "NUMEROS FLOTANTES"
+    );
+
+    for (i = 0; i < cantidadLexemas; i++)
+    {
+        if (strcmp(tokens[i], "FLOTANTE") == 0)
+        {
+            fprintf(
+                archivo,
+                "%-25s %-25s %-10d\n",
+                lexemas[i],
+                tokens[i],
+                lineasLexemas[i]
+            );
+        }
+    }
+
+    imprimirEncabezado(
+        archivo,
+        "VALORES BOOLEANOS"
+    );
+
+    for (i = 0; i < cantidadLexemas; i++)
+    {
+        if (strcmp(tokens[i], "BOOLEANO") == 0)
+        {
+            fprintf(
+                archivo,
+                "%-25s %-25s %-10d\n",
+                lexemas[i],
+                tokens[i],
+                lineasLexemas[i]
+            );
+        }
+    }
+
+    imprimirEncabezado(
+        archivo,
+        "CADENAS"
+    );
+
+    for (i = 0; i < cantidadLexemas; i++)
+    {
+        if (strcmp(tokens[i], "CADENA") == 0)
+        {
+            fprintf(
+                archivo,
+                "%-25s %-25s %-10d\n",
+                lexemas[i],
+                tokens[i],
+                lineasLexemas[i]
+            );
+        }
+    }
+
+    imprimirEncabezado(
+        archivo,
+        "OPERADORES"
+    );
+
+    for (i = 0; i < cantidadLexemas; i++)
+    {
+        if (strncmp(tokens[i], "OP_", 3) == 0)
+        {
+            fprintf(
+                archivo,
+                "%-25s %-25s %-10d\n",
+                lexemas[i],
+                tokens[i],
+                lineasLexemas[i]
+            );
+        }
+    }
+
+    fclose(archivo);
 }
 %}
 
@@ -576,20 +788,10 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    archivo_lexemas = fopen("lexemas.txt", "w");
-
-    if (archivo_lexemas == NULL)
-    {
-        printf("No se pudo crear lexemas.txt\n");
-        fclose(yyin);
-        return 1;
-    }
-
-    fprintf(archivo_lexemas, "LEXEMA|TOKEN|LINEA\n");
-
     yylex();
 
     printf("\n========== RESULTADOS ==========\n");
+
     printf("Cantidad de lineas: %d\n", linea);
     printf("Cantidad de caracteres: %d\n", caracteres);
     printf("Palabras reservadas: %d\n", cont_reservadas);
@@ -602,8 +804,9 @@ int main(int argc, char *argv[])
 
     mostrarReservadasOrdenadas();
 
+    generarArchivoLexemas();
+
     fclose(yyin);
-    fclose(archivo_lexemas);
 
     printf("\nArchivo lexemas.txt generado correctamente\n");
 

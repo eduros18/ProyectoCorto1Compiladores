@@ -570,6 +570,7 @@ char *yytext;
 #line 1 "analizador.l"
 #line 2 "analizador.l"
 #include <stdio.h>
+#include <string.h>
 
 int linea = 1;
 int caracteres = 0;
@@ -623,11 +624,24 @@ int pr_while = 0;
 int pr_with = 0;
 int pr_yield = 0;
 
-FILE *archivo_lexemas;
+#define MAX_LEXEMAS 2000
+
+char lexemas[MAX_LEXEMAS][150];
+char tokens[MAX_LEXEMAS][50];
+int lineasLexemas[MAX_LEXEMAS];
+
+int cantidadLexemas = 0;
 
 void guardarLexema(char lexema[], char token[])
 {
-    fprintf(archivo_lexemas, "%s|%s|%d\n", lexema, token, linea);
+    if (cantidadLexemas < MAX_LEXEMAS)
+    {
+        strcpy(lexemas[cantidadLexemas], lexema);
+        strcpy(tokens[cantidadLexemas], token);
+        lineasLexemas[cantidadLexemas] = linea;
+
+        cantidadLexemas++;
+    }
 }
 
 void mostrarReservadasOrdenadas()
@@ -687,8 +701,206 @@ void mostrarReservadasOrdenadas()
         }
     }
 }
-#line 690 "lex.yy.c"
-#line 691 "lex.yy.c"
+
+void imprimirEncabezado(FILE *archivo, char titulo[])
+{
+    fprintf(archivo, "\n");
+    fprintf(archivo, "============================================================\n");
+    fprintf(archivo, "%s\n", titulo);
+    fprintf(archivo, "============================================================\n\n");
+
+    fprintf(
+        archivo,
+        "%-25s %-25s %-10s\n",
+        "LEXEMA",
+        "TOKEN",
+        "LINEA"
+    );
+
+    fprintf(
+        archivo,
+        "------------------------------------------------------------\n"
+    );
+}
+
+void generarArchivoLexemas()
+{
+    FILE *archivo;
+    int i;
+
+    archivo = fopen("lexemas.txt", "w");
+
+    if (archivo == NULL)
+    {
+        printf("No se pudo crear lexemas.txt\n");
+        return;
+    }
+
+    fprintf(
+        archivo,
+        "============================================================\n"
+    );
+
+    fprintf(
+        archivo,
+        "              RESULTADO DEL ANALISIS LEXICO\n"
+    );
+
+    fprintf(
+        archivo,
+        "============================================================\n"
+    );
+
+    fprintf(archivo, "\nRESUMEN\n");
+    fprintf(archivo, "------------------------------------------------------------\n");
+
+    fprintf(archivo, "Lineas: %d\n", linea);
+    fprintf(archivo, "Caracteres: %d\n", caracteres);
+    fprintf(archivo, "Palabras reservadas: %d\n", cont_reservadas);
+    fprintf(archivo, "Identificadores: %d\n", cont_identificadores);
+    fprintf(archivo, "Enteros: %d\n", cont_enteros);
+    fprintf(archivo, "Flotantes: %d\n", cont_flotantes);
+    fprintf(archivo, "Booleanos: %d\n", cont_booleanos);
+    fprintf(archivo, "Cadenas: %d\n", cont_cadenas);
+    fprintf(archivo, "Operadores: %d\n", cont_operadores);
+
+    imprimirEncabezado(
+        archivo,
+        "PALABRAS RESERVADAS"
+    );
+
+    for (i = 0; i < cantidadLexemas; i++)
+    {
+        if (strncmp(tokens[i], "PR_", 3) == 0)
+        {
+            fprintf(
+                archivo,
+                "%-25s %-25s %-10d\n",
+                lexemas[i],
+                tokens[i],
+                lineasLexemas[i]
+            );
+        }
+    }
+
+    imprimirEncabezado(
+        archivo,
+        "IDENTIFICADORES"
+    );
+
+    for (i = 0; i < cantidadLexemas; i++)
+    {
+        if (strcmp(tokens[i], "IDENTIFICADOR") == 0)
+        {
+            fprintf(
+                archivo,
+                "%-25s %-25s %-10d\n",
+                lexemas[i],
+                tokens[i],
+                lineasLexemas[i]
+            );
+        }
+    }
+
+    imprimirEncabezado(
+        archivo,
+        "NUMEROS ENTEROS"
+    );
+
+    for (i = 0; i < cantidadLexemas; i++)
+    {
+        if (strcmp(tokens[i], "ENTERO") == 0)
+        {
+            fprintf(
+                archivo,
+                "%-25s %-25s %-10d\n",
+                lexemas[i],
+                tokens[i],
+                lineasLexemas[i]
+            );
+        }
+    }
+
+    imprimirEncabezado(
+        archivo,
+        "NUMEROS FLOTANTES"
+    );
+
+    for (i = 0; i < cantidadLexemas; i++)
+    {
+        if (strcmp(tokens[i], "FLOTANTE") == 0)
+        {
+            fprintf(
+                archivo,
+                "%-25s %-25s %-10d\n",
+                lexemas[i],
+                tokens[i],
+                lineasLexemas[i]
+            );
+        }
+    }
+
+    imprimirEncabezado(
+        archivo,
+        "VALORES BOOLEANOS"
+    );
+
+    for (i = 0; i < cantidadLexemas; i++)
+    {
+        if (strcmp(tokens[i], "BOOLEANO") == 0)
+        {
+            fprintf(
+                archivo,
+                "%-25s %-25s %-10d\n",
+                lexemas[i],
+                tokens[i],
+                lineasLexemas[i]
+            );
+        }
+    }
+
+    imprimirEncabezado(
+        archivo,
+        "CADENAS"
+    );
+
+    for (i = 0; i < cantidadLexemas; i++)
+    {
+        if (strcmp(tokens[i], "CADENA") == 0)
+        {
+            fprintf(
+                archivo,
+                "%-25s %-25s %-10d\n",
+                lexemas[i],
+                tokens[i],
+                lineasLexemas[i]
+            );
+        }
+    }
+
+    imprimirEncabezado(
+        archivo,
+        "OPERADORES"
+    );
+
+    for (i = 0; i < cantidadLexemas; i++)
+    {
+        if (strncmp(tokens[i], "OP_", 3) == 0)
+        {
+            fprintf(
+                archivo,
+                "%-25s %-25s %-10d\n",
+                lexemas[i],
+                tokens[i],
+                lineasLexemas[i]
+            );
+        }
+    }
+
+    fclose(archivo);
+}
+#line 902 "lex.yy.c"
+#line 903 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -905,10 +1117,10 @@ YY_DECL
 		}
 
 	{
-#line 122 "analizador.l"
+#line 334 "analizador.l"
 
 
-#line 911 "lex.yy.c"
+#line 1123 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -967,7 +1179,7 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 124 "analizador.l"
+#line 336 "analizador.l"
 {
     caracteres += yyleng;
 }
@@ -975,7 +1187,7 @@ YY_RULE_SETUP
 case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
-#line 128 "analizador.l"
+#line 340 "analizador.l"
 {
     int i;
 
@@ -992,7 +1204,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 142 "analizador.l"
+#line 354 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1002,7 +1214,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 149 "analizador.l"
+#line 361 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1012,7 +1224,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 156 "analizador.l"
+#line 368 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1022,7 +1234,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 163 "analizador.l"
+#line 375 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1032,7 +1244,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 170 "analizador.l"
+#line 382 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1042,7 +1254,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 177 "analizador.l"
+#line 389 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1052,7 +1264,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 184 "analizador.l"
+#line 396 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1062,7 +1274,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 191 "analizador.l"
+#line 403 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1072,7 +1284,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 198 "analizador.l"
+#line 410 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1082,7 +1294,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 205 "analizador.l"
+#line 417 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1092,7 +1304,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 212 "analizador.l"
+#line 424 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1102,7 +1314,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 219 "analizador.l"
+#line 431 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1112,7 +1324,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 226 "analizador.l"
+#line 438 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1122,7 +1334,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 233 "analizador.l"
+#line 445 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1132,7 +1344,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 240 "analizador.l"
+#line 452 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1142,7 +1354,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 247 "analizador.l"
+#line 459 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1152,7 +1364,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 254 "analizador.l"
+#line 466 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1162,7 +1374,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 261 "analizador.l"
+#line 473 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1172,7 +1384,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 268 "analizador.l"
+#line 480 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1182,7 +1394,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 275 "analizador.l"
+#line 487 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1192,7 +1404,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 282 "analizador.l"
+#line 494 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1202,7 +1414,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 289 "analizador.l"
+#line 501 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1212,7 +1424,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 296 "analizador.l"
+#line 508 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1222,7 +1434,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 303 "analizador.l"
+#line 515 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1232,7 +1444,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 310 "analizador.l"
+#line 522 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1242,7 +1454,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 317 "analizador.l"
+#line 529 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1252,7 +1464,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 324 "analizador.l"
+#line 536 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1262,7 +1474,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 331 "analizador.l"
+#line 543 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1272,7 +1484,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 338 "analizador.l"
+#line 550 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1282,7 +1494,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 345 "analizador.l"
+#line 557 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1292,7 +1504,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 352 "analizador.l"
+#line 564 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1302,7 +1514,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 359 "analizador.l"
+#line 571 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1312,7 +1524,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 366 "analizador.l"
+#line 578 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1322,7 +1534,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 373 "analizador.l"
+#line 585 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1332,7 +1544,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 380 "analizador.l"
+#line 592 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1342,7 +1554,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 387 "analizador.l"
+#line 599 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1352,7 +1564,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 394 "analizador.l"
+#line 606 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1362,7 +1574,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 401 "analizador.l"
+#line 613 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1372,7 +1584,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 408 "analizador.l"
+#line 620 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1382,7 +1594,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 415 "analizador.l"
+#line 627 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
@@ -1392,7 +1604,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 422 "analizador.l"
+#line 634 "analizador.l"
 {
     caracteres += yyleng;
     cont_booleanos++;
@@ -1401,7 +1613,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 428 "analizador.l"
+#line 640 "analizador.l"
 {
     caracteres += yyleng;
     cont_flotantes++;
@@ -1410,7 +1622,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 434 "analizador.l"
+#line 646 "analizador.l"
 {
     caracteres += yyleng;
     cont_enteros++;
@@ -1420,7 +1632,7 @@ YY_RULE_SETUP
 case 46:
 /* rule 46 can match eol */
 YY_RULE_SETUP
-#line 440 "analizador.l"
+#line 652 "analizador.l"
 {
     caracteres += yyleng;
     cont_cadenas++;
@@ -1429,7 +1641,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 446 "analizador.l"
+#line 658 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1438,7 +1650,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 452 "analizador.l"
+#line 664 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1447,7 +1659,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 458 "analizador.l"
+#line 670 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1456,7 +1668,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 464 "analizador.l"
+#line 676 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1465,7 +1677,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 470 "analizador.l"
+#line 682 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1474,7 +1686,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 476 "analizador.l"
+#line 688 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1483,7 +1695,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 482 "analizador.l"
+#line 694 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1492,7 +1704,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 488 "analizador.l"
+#line 700 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1501,7 +1713,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 494 "analizador.l"
+#line 706 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1510,7 +1722,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
-#line 500 "analizador.l"
+#line 712 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1519,7 +1731,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
-#line 506 "analizador.l"
+#line 718 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1528,7 +1740,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 58:
 YY_RULE_SETUP
-#line 512 "analizador.l"
+#line 724 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1537,7 +1749,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 59:
 YY_RULE_SETUP
-#line 518 "analizador.l"
+#line 730 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1546,7 +1758,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 60:
 YY_RULE_SETUP
-#line 524 "analizador.l"
+#line 736 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1555,7 +1767,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 61:
 YY_RULE_SETUP
-#line 530 "analizador.l"
+#line 742 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1564,7 +1776,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 62:
 YY_RULE_SETUP
-#line 536 "analizador.l"
+#line 748 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1573,7 +1785,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 63:
 YY_RULE_SETUP
-#line 542 "analizador.l"
+#line 754 "analizador.l"
 {
     caracteres += yyleng;
     cont_identificadores++;
@@ -1583,7 +1795,7 @@ YY_RULE_SETUP
 case 64:
 /* rule 64 can match eol */
 YY_RULE_SETUP
-#line 548 "analizador.l"
+#line 760 "analizador.l"
 {
     caracteres++;
     linea++;
@@ -1591,24 +1803,24 @@ YY_RULE_SETUP
 	YY_BREAK
 case 65:
 YY_RULE_SETUP
-#line 553 "analizador.l"
+#line 765 "analizador.l"
 {
     caracteres += yyleng;
 }
 	YY_BREAK
 case 66:
 YY_RULE_SETUP
-#line 557 "analizador.l"
+#line 769 "analizador.l"
 {
     caracteres += yyleng;
 }
 	YY_BREAK
 case 67:
 YY_RULE_SETUP
-#line 561 "analizador.l"
+#line 773 "analizador.l"
 ECHO;
 	YY_BREAK
-#line 1611 "lex.yy.c"
+#line 1823 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2613,7 +2825,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 561 "analizador.l"
+#line 773 "analizador.l"
 
 
 int main(int argc, char *argv[])
@@ -2632,20 +2844,10 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    archivo_lexemas = fopen("lexemas.txt", "w");
-
-    if (archivo_lexemas == NULL)
-    {
-        printf("No se pudo crear lexemas.txt\n");
-        fclose(yyin);
-        return 1;
-    }
-
-    fprintf(archivo_lexemas, "LEXEMA|TOKEN|LINEA\n");
-
     yylex();
 
     printf("\n========== RESULTADOS ==========\n");
+
     printf("Cantidad de lineas: %d\n", linea);
     printf("Cantidad de caracteres: %d\n", caracteres);
     printf("Palabras reservadas: %d\n", cont_reservadas);
@@ -2658,8 +2860,9 @@ int main(int argc, char *argv[])
 
     mostrarReservadasOrdenadas();
 
+    generarArchivoLexemas();
+
     fclose(yyin);
-    fclose(archivo_lexemas);
 
     printf("\nArchivo lexemas.txt generado correctamente\n");
 

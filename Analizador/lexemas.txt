@@ -1,346 +1,409 @@
-LEXEMA|TOKEN|LINEA
-package|PR_PACKAGE|1
-proyecto|IDENTIFICADOR|1
-import|PR_IMPORT|3
-scala|IDENTIFICADOR|3
-util|IDENTIFICADOR|3
-Random|IDENTIFICADOR|3
-object|PR_OBJECT|5
-PruebaAnalizador|IDENTIFICADOR|5
-val|PR_VAL|7
-nombrePrograma|IDENTIFICADOR|7
-=|OP_ASIGNACION|7
-"Analizador Scala"|CADENA|7
-val|PR_VAL|8
-version|IDENTIFICADOR|8
-=|OP_ASIGNACION|8
-1.5|FLOTANTE|8
-val|PR_VAL|9
-activo|IDENTIFICADOR|9
-=|OP_ASIGNACION|9
-true|BOOLEANO|9
-val|PR_VAL|10
-terminado|IDENTIFICADOR|10
-=|OP_ASIGNACION|10
-false|BOOLEANO|10
-var|PR_VAR|12
-contador|IDENTIFICADOR|12
-=|OP_ASIGNACION|12
-0|ENTERO|12
-var|PR_VAR|13
-total|IDENTIFICADOR|13
-=|OP_ASIGNACION|13
-100|ENTERO|13
-var|PR_VAR|14
-promedio|IDENTIFICADOR|14
-=|OP_ASIGNACION|14
-85.75|FLOTANTE|14
-def|PR_DEF|16
-sumar|IDENTIFICADOR|16
-a|IDENTIFICADOR|16
-Int|IDENTIFICADOR|16
-b|IDENTIFICADOR|16
-Int|IDENTIFICADOR|16
-Int|IDENTIFICADOR|16
-=|OP_ASIGNACION|16
-val|PR_VAL|17
-resultado|IDENTIFICADOR|17
-=|OP_ASIGNACION|17
-a|IDENTIFICADOR|17
-+|OP_SUMA|17
-b|IDENTIFICADOR|17
-return|PR_RETURN|18
-resultado|IDENTIFICADOR|18
-def|PR_DEF|21
-restar|IDENTIFICADOR|21
-a|IDENTIFICADOR|21
-Int|IDENTIFICADOR|21
-b|IDENTIFICADOR|21
-Int|IDENTIFICADOR|21
-Int|IDENTIFICADOR|21
-=|OP_ASIGNACION|21
-val|PR_VAL|22
-resultado|IDENTIFICADOR|22
-=|OP_ASIGNACION|22
-a|IDENTIFICADOR|22
--|OP_RESTA|22
-b|IDENTIFICADOR|22
-return|PR_RETURN|23
-resultado|IDENTIFICADOR|23
-def|PR_DEF|26
-multiplicar|IDENTIFICADOR|26
-a|IDENTIFICADOR|26
-Int|IDENTIFICADOR|26
-b|IDENTIFICADOR|26
-Int|IDENTIFICADOR|26
-Int|IDENTIFICADOR|26
-=|OP_ASIGNACION|26
-val|PR_VAL|27
-resultado|IDENTIFICADOR|27
-=|OP_ASIGNACION|27
-a|IDENTIFICADOR|27
-*|OP_MULTIPLICACION|27
-b|IDENTIFICADOR|27
-return|PR_RETURN|28
-resultado|IDENTIFICADOR|28
-def|PR_DEF|31
-dividir|IDENTIFICADOR|31
-a|IDENTIFICADOR|31
-Int|IDENTIFICADOR|31
-b|IDENTIFICADOR|31
-Int|IDENTIFICADOR|31
-Int|IDENTIFICADOR|31
-=|OP_ASIGNACION|31
-val|PR_VAL|32
-resultado|IDENTIFICADOR|32
-=|OP_ASIGNACION|32
-a|IDENTIFICADOR|32
-/|OP_DIVISION|32
-b|IDENTIFICADOR|32
-return|PR_RETURN|33
-resultado|IDENTIFICADOR|33
-def|PR_DEF|36
-obtenerResiduo|IDENTIFICADOR|36
-a|IDENTIFICADOR|36
-Int|IDENTIFICADOR|36
-b|IDENTIFICADOR|36
-Int|IDENTIFICADOR|36
-Int|IDENTIFICADOR|36
-=|OP_ASIGNACION|36
-val|PR_VAL|37
-resultado|IDENTIFICADOR|37
-=|OP_ASIGNACION|37
-a|IDENTIFICADOR|37
-%|OP_MODULO|37
-b|IDENTIFICADOR|37
-return|PR_RETURN|38
-resultado|IDENTIFICADOR|38
-def|PR_DEF|41
-verificarEdad|IDENTIFICADOR|41
-edad|IDENTIFICADOR|41
-Int|IDENTIFICADOR|41
-Boolean|IDENTIFICADOR|41
-=|OP_ASIGNACION|41
-if|PR_IF|43
-edad|IDENTIFICADOR|43
->=|OP_MAYOR_IGUAL|43
-18|ENTERO|43
-return|PR_RETURN|44
-true|BOOLEANO|44
-else|PR_ELSE|46
-return|PR_RETURN|47
-false|BOOLEANO|47
-def|PR_DEF|52
-compararNumeros|IDENTIFICADOR|52
-numero1|IDENTIFICADOR|52
-Int|IDENTIFICADOR|52
-numero2|IDENTIFICADOR|52
-Int|IDENTIFICADOR|52
-Boolean|IDENTIFICADOR|52
-=|OP_ASIGNACION|52
-if|PR_IF|54
-numero1|IDENTIFICADOR|54
-==|OP_IGUAL|54
-numero2|IDENTIFICADOR|54
-return|PR_RETURN|55
-true|BOOLEANO|55
-if|PR_IF|58
-numero1|IDENTIFICADOR|58
-!=|OP_DIFERENTE|58
-numero2|IDENTIFICADOR|58
-return|PR_RETURN|59
-false|BOOLEANO|59
-return|PR_RETURN|62
-false|BOOLEANO|62
-def|PR_DEF|65
-verificarRango|IDENTIFICADOR|65
-numero|IDENTIFICADOR|65
-Int|IDENTIFICADOR|65
-Boolean|IDENTIFICADOR|65
-=|OP_ASIGNACION|65
-if|PR_IF|67
-numero|IDENTIFICADOR|67
->|OP_MAYOR|67
-0|ENTERO|67
-&&|OP_AND|67
-numero|IDENTIFICADOR|67
-<=|OP_MENOR_IGUAL|67
-100|ENTERO|67
-return|PR_RETURN|68
-true|BOOLEANO|68
-if|PR_IF|71
-numero|IDENTIFICADOR|71
-<|OP_MENOR|71
-0|ENTERO|71
-|||OP_OR|71
-numero|IDENTIFICADOR|71
->=|OP_MAYOR_IGUAL|71
-200|ENTERO|71
-return|PR_RETURN|72
-false|BOOLEANO|72
-return|PR_RETURN|75
-false|BOOLEANO|75
-def|PR_DEF|78
-mostrarMensaje|IDENTIFICADOR|78
-mensaje|IDENTIFICADOR|78
-String|IDENTIFICADOR|78
-Unit|IDENTIFICADOR|78
-=|OP_ASIGNACION|78
-println|IDENTIFICADOR|79
-mensaje|IDENTIFICADOR|79
-def|PR_DEF|82
-calcularPromedio|IDENTIFICADOR|82
-nota1|IDENTIFICADOR|82
-Double|IDENTIFICADOR|82
-nota2|IDENTIFICADOR|82
-Double|IDENTIFICADOR|82
-Double|IDENTIFICADOR|82
-=|OP_ASIGNACION|82
-val|PR_VAL|84
-sumaNotas|IDENTIFICADOR|84
-=|OP_ASIGNACION|84
-nota1|IDENTIFICADOR|84
-+|OP_SUMA|84
-nota2|IDENTIFICADOR|84
-val|PR_VAL|85
-resultado|IDENTIFICADOR|85
-=|OP_ASIGNACION|85
-sumaNotas|IDENTIFICADOR|85
-/|OP_DIVISION|85
-2.0|FLOTANTE|85
-return|PR_RETURN|87
-resultado|IDENTIFICADOR|87
-def|PR_DEF|90
-recorrerNumeros|IDENTIFICADOR|90
-Unit|IDENTIFICADOR|90
-=|OP_ASIGNACION|90
-for|PR_FOR|92
-numero|IDENTIFICADOR|92
-<-|OP_GENERADOR|92
-1|ENTERO|92
-to|IDENTIFICADOR|92
-10|ENTERO|92
-contador|IDENTIFICADOR|93
-=|OP_ASIGNACION|93
-contador|IDENTIFICADOR|93
-+|OP_SUMA|93
-1|ENTERO|93
-println|IDENTIFICADOR|94
-numero|IDENTIFICADOR|94
-def|PR_DEF|99
-probarWhile|IDENTIFICADOR|99
-Unit|IDENTIFICADOR|99
-=|OP_ASIGNACION|99
-var|PR_VAR|101
-numero|IDENTIFICADOR|101
-=|OP_ASIGNACION|101
-0|ENTERO|101
-while|PR_WHILE|103
-numero|IDENTIFICADOR|103
-<|OP_MENOR|103
-5|ENTERO|103
-numero|IDENTIFICADOR|104
-=|OP_ASIGNACION|104
-numero|IDENTIFICADOR|104
-+|OP_SUMA|104
-1|ENTERO|104
-println|IDENTIFICADOR|105
-numero|IDENTIFICADOR|105
-def|PR_DEF|110
-main|IDENTIFICADOR|110
-args|IDENTIFICADOR|110
-Array|IDENTIFICADOR|110
-String|IDENTIFICADOR|110
-Unit|IDENTIFICADOR|110
-=|OP_ASIGNACION|110
-val|PR_VAL|112
-estudiante|IDENTIFICADOR|112
-=|OP_ASIGNACION|112
-"Angel"|CADENA|112
-val|PR_VAL|113
-edad|IDENTIFICADOR|113
-=|OP_ASIGNACION|113
-20|ENTERO|113
-val|PR_VAL|114
-nota1|IDENTIFICADOR|114
-=|OP_ASIGNACION|114
-90.5|FLOTANTE|114
-val|PR_VAL|115
-nota2|IDENTIFICADOR|115
-=|OP_ASIGNACION|115
-80.25|FLOTANTE|115
-val|PR_VAL|116
-aprobado|IDENTIFICADOR|116
-=|OP_ASIGNACION|116
-true|BOOLEANO|116
-val|PR_VAL|118
-suma|IDENTIFICADOR|118
-=|OP_ASIGNACION|118
-sumar|IDENTIFICADOR|118
-10|ENTERO|118
-5|ENTERO|118
-val|PR_VAL|119
-resta|IDENTIFICADOR|119
-=|OP_ASIGNACION|119
-restar|IDENTIFICADOR|119
-20|ENTERO|119
-8|ENTERO|119
-val|PR_VAL|120
-multiplicacion|IDENTIFICADOR|120
-=|OP_ASIGNACION|120
-multiplicar|IDENTIFICADOR|120
-4|ENTERO|120
-5|ENTERO|120
-val|PR_VAL|121
-division|IDENTIFICADOR|121
-=|OP_ASIGNACION|121
-dividir|IDENTIFICADOR|121
-20|ENTERO|121
-4|ENTERO|121
-val|PR_VAL|122
-residuo|IDENTIFICADOR|122
-=|OP_ASIGNACION|122
-obtenerResiduo|IDENTIFICADOR|122
-10|ENTERO|122
-3|ENTERO|122
-val|PR_VAL|124
-promedioFinal|IDENTIFICADOR|124
-=|OP_ASIGNACION|124
-calcularPromedio|IDENTIFICADOR|124
-nota1|IDENTIFICADOR|124
-nota2|IDENTIFICADOR|124
-println|IDENTIFICADOR|126
-"Nombre del estudiante:"|CADENA|126
-println|IDENTIFICADOR|127
-estudiante|IDENTIFICADOR|127
-println|IDENTIFICADOR|129
-"Edad:"|CADENA|129
-println|IDENTIFICADOR|130
-edad|IDENTIFICADOR|130
-println|IDENTIFICADOR|132
-"Promedio:"|CADENA|132
-println|IDENTIFICADOR|133
-promedioFinal|IDENTIFICADOR|133
-if|PR_IF|135
-aprobado|IDENTIFICADOR|135
-==|OP_IGUAL|135
-true|BOOLEANO|135
-println|IDENTIFICADOR|136
-"El estudiante esta aprobado"|CADENA|136
-else|PR_ELSE|138
-println|IDENTIFICADOR|139
-"El estudiante no esta aprobado"|CADENA|139
-if|PR_IF|142
-edad|IDENTIFICADOR|142
->=|OP_MAYOR_IGUAL|142
-18|ENTERO|142
-&&|OP_AND|142
-aprobado|IDENTIFICADOR|142
-==|OP_IGUAL|142
-true|BOOLEANO|142
-println|IDENTIFICADOR|143
-"Es mayor de edad y esta aprobado"|CADENA|143
-recorrerNumeros|IDENTIFICADOR|146
-probarWhile|IDENTIFICADOR|148
-mostrarMensaje|IDENTIFICADOR|150
-"Prueba del analizador finalizada"|CADENA|150
+============================================================
+              RESULTADO DEL ANALISIS LEXICO
+============================================================
+
+RESUMEN
+------------------------------------------------------------
+Lineas: 168
+Caracteres: 2923
+Palabras reservadas: 67
+Identificadores: 161
+Enteros: 25
+Flotantes: 5
+Booleanos: 13
+Cadenas: 9
+Operadores: 65
+
+============================================================
+PALABRAS RESERVADAS
+============================================================
+
+LEXEMA                    TOKEN                     LINEA     
+------------------------------------------------------------
+package                   PR_PACKAGE                1         
+import                    PR_IMPORT                 3         
+object                    PR_OBJECT                 5         
+val                       PR_VAL                    7         
+val                       PR_VAL                    8         
+val                       PR_VAL                    9         
+val                       PR_VAL                    10        
+var                       PR_VAR                    12        
+var                       PR_VAR                    13        
+var                       PR_VAR                    14        
+def                       PR_DEF                    16        
+val                       PR_VAL                    17        
+return                    PR_RETURN                 18        
+def                       PR_DEF                    21        
+val                       PR_VAL                    22        
+return                    PR_RETURN                 23        
+def                       PR_DEF                    26        
+val                       PR_VAL                    27        
+return                    PR_RETURN                 28        
+def                       PR_DEF                    31        
+val                       PR_VAL                    32        
+return                    PR_RETURN                 33        
+def                       PR_DEF                    36        
+val                       PR_VAL                    37        
+return                    PR_RETURN                 38        
+def                       PR_DEF                    41        
+if                        PR_IF                     43        
+return                    PR_RETURN                 44        
+else                      PR_ELSE                   46        
+return                    PR_RETURN                 47        
+def                       PR_DEF                    52        
+if                        PR_IF                     54        
+return                    PR_RETURN                 55        
+if                        PR_IF                     58        
+return                    PR_RETURN                 59        
+return                    PR_RETURN                 62        
+def                       PR_DEF                    65        
+if                        PR_IF                     67        
+return                    PR_RETURN                 68        
+if                        PR_IF                     71        
+return                    PR_RETURN                 72        
+return                    PR_RETURN                 75        
+def                       PR_DEF                    78        
+def                       PR_DEF                    82        
+val                       PR_VAL                    84        
+val                       PR_VAL                    85        
+return                    PR_RETURN                 87        
+def                       PR_DEF                    90        
+for                       PR_FOR                    92        
+def                       PR_DEF                    99        
+var                       PR_VAR                    101       
+while                     PR_WHILE                  103       
+def                       PR_DEF                    110       
+val                       PR_VAL                    112       
+val                       PR_VAL                    113       
+val                       PR_VAL                    114       
+val                       PR_VAL                    115       
+val                       PR_VAL                    116       
+val                       PR_VAL                    118       
+val                       PR_VAL                    119       
+val                       PR_VAL                    120       
+val                       PR_VAL                    121       
+val                       PR_VAL                    122       
+val                       PR_VAL                    124       
+if                        PR_IF                     135       
+else                      PR_ELSE                   138       
+if                        PR_IF                     142       
+
+============================================================
+IDENTIFICADORES
+============================================================
+
+LEXEMA                    TOKEN                     LINEA     
+------------------------------------------------------------
+proyecto                  IDENTIFICADOR             1         
+scala                     IDENTIFICADOR             3         
+util                      IDENTIFICADOR             3         
+Random                    IDENTIFICADOR             3         
+PruebaAnalizador          IDENTIFICADOR             5         
+nombrePrograma            IDENTIFICADOR             7         
+version                   IDENTIFICADOR             8         
+activo                    IDENTIFICADOR             9         
+terminado                 IDENTIFICADOR             10        
+contador                  IDENTIFICADOR             12        
+total                     IDENTIFICADOR             13        
+promedio                  IDENTIFICADOR             14        
+sumar                     IDENTIFICADOR             16        
+a                         IDENTIFICADOR             16        
+Int                       IDENTIFICADOR             16        
+b                         IDENTIFICADOR             16        
+Int                       IDENTIFICADOR             16        
+Int                       IDENTIFICADOR             16        
+resultado                 IDENTIFICADOR             17        
+a                         IDENTIFICADOR             17        
+b                         IDENTIFICADOR             17        
+resultado                 IDENTIFICADOR             18        
+restar                    IDENTIFICADOR             21        
+a                         IDENTIFICADOR             21        
+Int                       IDENTIFICADOR             21        
+b                         IDENTIFICADOR             21        
+Int                       IDENTIFICADOR             21        
+Int                       IDENTIFICADOR             21        
+resultado                 IDENTIFICADOR             22        
+a                         IDENTIFICADOR             22        
+b                         IDENTIFICADOR             22        
+resultado                 IDENTIFICADOR             23        
+multiplicar               IDENTIFICADOR             26        
+a                         IDENTIFICADOR             26        
+Int                       IDENTIFICADOR             26        
+b                         IDENTIFICADOR             26        
+Int                       IDENTIFICADOR             26        
+Int                       IDENTIFICADOR             26        
+resultado                 IDENTIFICADOR             27        
+a                         IDENTIFICADOR             27        
+b                         IDENTIFICADOR             27        
+resultado                 IDENTIFICADOR             28        
+dividir                   IDENTIFICADOR             31        
+a                         IDENTIFICADOR             31        
+Int                       IDENTIFICADOR             31        
+b                         IDENTIFICADOR             31        
+Int                       IDENTIFICADOR             31        
+Int                       IDENTIFICADOR             31        
+resultado                 IDENTIFICADOR             32        
+a                         IDENTIFICADOR             32        
+b                         IDENTIFICADOR             32        
+resultado                 IDENTIFICADOR             33        
+obtenerResiduo            IDENTIFICADOR             36        
+a                         IDENTIFICADOR             36        
+Int                       IDENTIFICADOR             36        
+b                         IDENTIFICADOR             36        
+Int                       IDENTIFICADOR             36        
+Int                       IDENTIFICADOR             36        
+resultado                 IDENTIFICADOR             37        
+a                         IDENTIFICADOR             37        
+b                         IDENTIFICADOR             37        
+resultado                 IDENTIFICADOR             38        
+verificarEdad             IDENTIFICADOR             41        
+edad                      IDENTIFICADOR             41        
+Int                       IDENTIFICADOR             41        
+Boolean                   IDENTIFICADOR             41        
+edad                      IDENTIFICADOR             43        
+compararNumeros           IDENTIFICADOR             52        
+numero1                   IDENTIFICADOR             52        
+Int                       IDENTIFICADOR             52        
+numero2                   IDENTIFICADOR             52        
+Int                       IDENTIFICADOR             52        
+Boolean                   IDENTIFICADOR             52        
+numero1                   IDENTIFICADOR             54        
+numero2                   IDENTIFICADOR             54        
+numero1                   IDENTIFICADOR             58        
+numero2                   IDENTIFICADOR             58        
+verificarRango            IDENTIFICADOR             65        
+numero                    IDENTIFICADOR             65        
+Int                       IDENTIFICADOR             65        
+Boolean                   IDENTIFICADOR             65        
+numero                    IDENTIFICADOR             67        
+numero                    IDENTIFICADOR             67        
+numero                    IDENTIFICADOR             71        
+numero                    IDENTIFICADOR             71        
+mostrarMensaje            IDENTIFICADOR             78        
+mensaje                   IDENTIFICADOR             78        
+String                    IDENTIFICADOR             78        
+Unit                      IDENTIFICADOR             78        
+println                   IDENTIFICADOR             79        
+mensaje                   IDENTIFICADOR             79        
+calcularPromedio          IDENTIFICADOR             82        
+nota1                     IDENTIFICADOR             82        
+Double                    IDENTIFICADOR             82        
+nota2                     IDENTIFICADOR             82        
+Double                    IDENTIFICADOR             82        
+Double                    IDENTIFICADOR             82        
+sumaNotas                 IDENTIFICADOR             84        
+nota1                     IDENTIFICADOR             84        
+nota2                     IDENTIFICADOR             84        
+resultado                 IDENTIFICADOR             85        
+sumaNotas                 IDENTIFICADOR             85        
+resultado                 IDENTIFICADOR             87        
+recorrerNumeros           IDENTIFICADOR             90        
+Unit                      IDENTIFICADOR             90        
+numero                    IDENTIFICADOR             92        
+to                        IDENTIFICADOR             92        
+contador                  IDENTIFICADOR             93        
+contador                  IDENTIFICADOR             93        
+println                   IDENTIFICADOR             94        
+numero                    IDENTIFICADOR             94        
+probarWhile               IDENTIFICADOR             99        
+Unit                      IDENTIFICADOR             99        
+numero                    IDENTIFICADOR             101       
+numero                    IDENTIFICADOR             103       
+numero                    IDENTIFICADOR             104       
+numero                    IDENTIFICADOR             104       
+println                   IDENTIFICADOR             105       
+numero                    IDENTIFICADOR             105       
+main                      IDENTIFICADOR             110       
+args                      IDENTIFICADOR             110       
+Array                     IDENTIFICADOR             110       
+String                    IDENTIFICADOR             110       
+Unit                      IDENTIFICADOR             110       
+estudiante                IDENTIFICADOR             112       
+edad                      IDENTIFICADOR             113       
+nota1                     IDENTIFICADOR             114       
+nota2                     IDENTIFICADOR             115       
+aprobado                  IDENTIFICADOR             116       
+suma                      IDENTIFICADOR             118       
+sumar                     IDENTIFICADOR             118       
+resta                     IDENTIFICADOR             119       
+restar                    IDENTIFICADOR             119       
+multiplicacion            IDENTIFICADOR             120       
+multiplicar               IDENTIFICADOR             120       
+division                  IDENTIFICADOR             121       
+dividir                   IDENTIFICADOR             121       
+residuo                   IDENTIFICADOR             122       
+obtenerResiduo            IDENTIFICADOR             122       
+promedioFinal             IDENTIFICADOR             124       
+calcularPromedio          IDENTIFICADOR             124       
+nota1                     IDENTIFICADOR             124       
+nota2                     IDENTIFICADOR             124       
+println                   IDENTIFICADOR             126       
+println                   IDENTIFICADOR             127       
+estudiante                IDENTIFICADOR             127       
+println                   IDENTIFICADOR             129       
+println                   IDENTIFICADOR             130       
+edad                      IDENTIFICADOR             130       
+println                   IDENTIFICADOR             132       
+println                   IDENTIFICADOR             133       
+promedioFinal             IDENTIFICADOR             133       
+aprobado                  IDENTIFICADOR             135       
+println                   IDENTIFICADOR             136       
+println                   IDENTIFICADOR             139       
+edad                      IDENTIFICADOR             142       
+aprobado                  IDENTIFICADOR             142       
+println                   IDENTIFICADOR             143       
+recorrerNumeros           IDENTIFICADOR             146       
+probarWhile               IDENTIFICADOR             148       
+mostrarMensaje            IDENTIFICADOR             150       
+
+============================================================
+NUMEROS ENTEROS
+============================================================
+
+LEXEMA                    TOKEN                     LINEA     
+------------------------------------------------------------
+0                         ENTERO                    12        
+100                       ENTERO                    13        
+18                        ENTERO                    43        
+0                         ENTERO                    67        
+100                       ENTERO                    67        
+0                         ENTERO                    71        
+200                       ENTERO                    71        
+1                         ENTERO                    92        
+10                        ENTERO                    92        
+1                         ENTERO                    93        
+0                         ENTERO                    101       
+5                         ENTERO                    103       
+1                         ENTERO                    104       
+20                        ENTERO                    113       
+10                        ENTERO                    118       
+5                         ENTERO                    118       
+20                        ENTERO                    119       
+8                         ENTERO                    119       
+4                         ENTERO                    120       
+5                         ENTERO                    120       
+20                        ENTERO                    121       
+4                         ENTERO                    121       
+10                        ENTERO                    122       
+3                         ENTERO                    122       
+18                        ENTERO                    142       
+
+============================================================
+NUMEROS FLOTANTES
+============================================================
+
+LEXEMA                    TOKEN                     LINEA     
+------------------------------------------------------------
+1.5                       FLOTANTE                  8         
+85.75                     FLOTANTE                  14        
+2.0                       FLOTANTE                  85        
+90.5                      FLOTANTE                  114       
+80.25                     FLOTANTE                  115       
+
+============================================================
+VALORES BOOLEANOS
+============================================================
+
+LEXEMA                    TOKEN                     LINEA     
+------------------------------------------------------------
+true                      BOOLEANO                  9         
+false                     BOOLEANO                  10        
+true                      BOOLEANO                  44        
+false                     BOOLEANO                  47        
+true                      BOOLEANO                  55        
+false                     BOOLEANO                  59        
+false                     BOOLEANO                  62        
+true                      BOOLEANO                  68        
+false                     BOOLEANO                  72        
+false                     BOOLEANO                  75        
+true                      BOOLEANO                  116       
+true                      BOOLEANO                  135       
+true                      BOOLEANO                  142       
+
+============================================================
+CADENAS
+============================================================
+
+LEXEMA                    TOKEN                     LINEA     
+------------------------------------------------------------
+"Analizador Scala"        CADENA                    7         
+"Angel"                   CADENA                    112       
+"Nombre del estudiante:"  CADENA                    126       
+"Edad:"                   CADENA                    129       
+"Promedio:"               CADENA                    132       
+"El estudiante esta aprobado" CADENA                    136       
+"El estudiante no esta aprobado" CADENA                    139       
+"Es mayor de edad y esta aprobado" CADENA                    143       
+"Prueba del analizador finalizada" CADENA                    150       
+
+============================================================
+OPERADORES
+============================================================
+
+LEXEMA                    TOKEN                     LINEA     
+------------------------------------------------------------
+=                         OP_ASIGNACION             7         
+=                         OP_ASIGNACION             8         
+=                         OP_ASIGNACION             9         
+=                         OP_ASIGNACION             10        
+=                         OP_ASIGNACION             12        
+=                         OP_ASIGNACION             13        
+=                         OP_ASIGNACION             14        
+=                         OP_ASIGNACION             16        
+=                         OP_ASIGNACION             17        
++                         OP_SUMA                   17        
+=                         OP_ASIGNACION             21        
+=                         OP_ASIGNACION             22        
+-                         OP_RESTA                  22        
+=                         OP_ASIGNACION             26        
+=                         OP_ASIGNACION             27        
+*                         OP_MULTIPLICACION         27        
+=                         OP_ASIGNACION             31        
+=                         OP_ASIGNACION             32        
+/                         OP_DIVISION               32        
+=                         OP_ASIGNACION             36        
+=                         OP_ASIGNACION             37        
+%                         OP_MODULO                 37        
+=                         OP_ASIGNACION             41        
+>=                        OP_MAYOR_IGUAL            43        
+=                         OP_ASIGNACION             52        
+==                        OP_IGUAL                  54        
+!=                        OP_DIFERENTE              58        
+=                         OP_ASIGNACION             65        
+>                         OP_MAYOR                  67        
+&&                        OP_AND                    67        
+<=                        OP_MENOR_IGUAL            67        
+<                         OP_MENOR                  71        
+||                        OP_OR                     71        
+>=                        OP_MAYOR_IGUAL            71        
+=                         OP_ASIGNACION             78        
+=                         OP_ASIGNACION             82        
+=                         OP_ASIGNACION             84        
++                         OP_SUMA                   84        
+=                         OP_ASIGNACION             85        
+/                         OP_DIVISION               85        
+=                         OP_ASIGNACION             90        
+<-                        OP_GENERADOR              92        
+=                         OP_ASIGNACION             93        
++                         OP_SUMA                   93        
+=                         OP_ASIGNACION             99        
+=                         OP_ASIGNACION             101       
+<                         OP_MENOR                  103       
+=                         OP_ASIGNACION             104       
++                         OP_SUMA                   104       
+=                         OP_ASIGNACION             110       
+=                         OP_ASIGNACION             112       
+=                         OP_ASIGNACION             113       
+=                         OP_ASIGNACION             114       
+=                         OP_ASIGNACION             115       
+=                         OP_ASIGNACION             116       
+=                         OP_ASIGNACION             118       
+=                         OP_ASIGNACION             119       
+=                         OP_ASIGNACION             120       
+=                         OP_ASIGNACION             121       
+=                         OP_ASIGNACION             122       
+=                         OP_ASIGNACION             124       
+==                        OP_IGUAL                  135       
+>=                        OP_MAYOR_IGUAL            142       
+&&                        OP_AND                    142       
+==                        OP_IGUAL                  142       
