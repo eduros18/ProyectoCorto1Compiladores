@@ -25,5 +25,10 @@ object Prueba {
     }
 
   }
+// val estoNoDebeContarse = 100
 
+/*
+def pruebaComentario = 50
+val mensaje = "Esto tampoco debe aparecer"
+*/
 }

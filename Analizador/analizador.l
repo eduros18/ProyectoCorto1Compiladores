@@ -23,6 +23,14 @@ void guardarLexema(char lexema[], char token[])
 
 %%
 
+"//".* {
+    caracteres += yyleng;
+}
+
+"/*"([^*]|\*+[^*/])*\*+"/" {
+    caracteres += yyleng;
+}
+
 "abstract" {
     caracteres += yyleng;
     cont_reservadas++;
