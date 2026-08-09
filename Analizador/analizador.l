@@ -19,16 +19,20 @@ int pr_class = 0;
 int pr_def = 0;
 int pr_do = 0;
 int pr_else = 0;
+int pr_enum = 0;
+int pr_export = 0;
 int pr_extends = 0;
 int pr_final = 0;
 int pr_finally = 0;
 int pr_for = 0;
+int pr_given = 0;
 int pr_if = 0;
 int pr_implicit = 0;
 int pr_import = 0;
 int pr_lazy = 0;
 int pr_match = 0;
 int pr_new = 0;
+int pr_null = 0;
 int pr_object = 0;
 int pr_override = 0;
 int pr_package = 0;
@@ -37,6 +41,7 @@ int pr_protected = 0;
 int pr_return = 0;
 int pr_sealed = 0;
 int pr_super = 0;
+int pr_then = 0;
 int pr_this = 0;
 int pr_throw = 0;
 int pr_trait = 0;
@@ -59,25 +64,27 @@ void mostrarReservadasOrdenadas()
 {
     char *nombres[] = {
         "abstract", "case", "catch", "class", "def",
-        "do", "else", "extends", "final", "finally",
-        "for", "if", "implicit", "import", "lazy",
-        "match", "new", "object", "override", "package",
-        "private", "protected", "return", "sealed", "super",
+        "do", "else", "enum", "export", "extends",
+        "final", "finally", "for", "given", "if",
+        "implicit", "import", "lazy", "match", "new",
+        "null", "object", "override", "package", "private",
+        "protected", "return", "sealed", "super", "then",
         "this", "throw", "trait", "try", "type",
         "val", "var", "while", "with", "yield"
     };
 
     int cantidades[] = {
         pr_abstract, pr_case, pr_catch, pr_class, pr_def,
-        pr_do, pr_else, pr_extends, pr_final, pr_finally,
-        pr_for, pr_if, pr_implicit, pr_import, pr_lazy,
-        pr_match, pr_new, pr_object, pr_override, pr_package,
-        pr_private, pr_protected, pr_return, pr_sealed, pr_super,
+        pr_do, pr_else, pr_enum, pr_export, pr_extends,
+        pr_final, pr_finally, pr_for, pr_given, pr_if,
+        pr_implicit, pr_import, pr_lazy, pr_match, pr_new,
+        pr_null, pr_object, pr_override, pr_package, pr_private,
+        pr_protected, pr_return, pr_sealed, pr_super, pr_then,
         pr_this, pr_throw, pr_trait, pr_try, pr_type,
         pr_val, pr_var, pr_while, pr_with, pr_yield
     };
 
-    int total = 35;
+    int total = 40;
     int i;
     int j;
     int tempCantidad;
@@ -181,6 +188,20 @@ void mostrarReservadasOrdenadas()
     guardarLexema(yytext, "PR_ELSE");
 }
 
+"enum" {
+    caracteres += yyleng;
+    cont_reservadas++;
+    pr_enum++;
+    guardarLexema(yytext, "PR_ENUM");
+}
+
+"export" {
+    caracteres += yyleng;
+    cont_reservadas++;
+    pr_export++;
+    guardarLexema(yytext, "PR_EXPORT");
+}
+
 "extends" {
     caracteres += yyleng;
     cont_reservadas++;
@@ -207,6 +228,13 @@ void mostrarReservadasOrdenadas()
     cont_reservadas++;
     pr_for++;
     guardarLexema(yytext, "PR_FOR");
+}
+
+"given" {
+    caracteres += yyleng;
+    cont_reservadas++;
+    pr_given++;
+    guardarLexema(yytext, "PR_GIVEN");
 }
 
 "if" {
@@ -249,6 +277,13 @@ void mostrarReservadasOrdenadas()
     cont_reservadas++;
     pr_new++;
     guardarLexema(yytext, "PR_NEW");
+}
+
+"null" {
+    caracteres += yyleng;
+    cont_reservadas++;
+    pr_null++;
+    guardarLexema(yytext, "PR_NULL");
 }
 
 "object" {
@@ -305,6 +340,13 @@ void mostrarReservadasOrdenadas()
     cont_reservadas++;
     pr_super++;
     guardarLexema(yytext, "PR_SUPER");
+}
+
+"then" {
+    caracteres += yyleng;
+    cont_reservadas++;
+    pr_then++;
+    guardarLexema(yytext, "PR_THEN");
 }
 
 "this" {
@@ -548,7 +590,6 @@ int main(int argc, char *argv[])
     yylex();
 
     printf("\n========== RESULTADOS ==========\n");
-
     printf("Cantidad de lineas: %d\n", linea);
     printf("Cantidad de caracteres: %d\n", caracteres);
     printf("Palabras reservadas: %d\n", cont_reservadas);
