@@ -572,15 +572,50 @@ int cont_booleanos = 0;
 int cont_cadenas = 0;
 int cont_operadores = 0;
 
+int pr_abstract = 0;
+int pr_case = 0;
+int pr_catch = 0;
+int pr_class = 0;
+int pr_def = 0;
+int pr_do = 0;
+int pr_else = 0;
+int pr_extends = 0;
+int pr_final = 0;
+int pr_finally = 0;
+int pr_for = 0;
+int pr_if = 0;
+int pr_implicit = 0;
+int pr_import = 0;
+int pr_lazy = 0;
+int pr_match = 0;
+int pr_new = 0;
+int pr_object = 0;
+int pr_override = 0;
+int pr_package = 0;
+int pr_private = 0;
+int pr_protected = 0;
+int pr_return = 0;
+int pr_sealed = 0;
+int pr_super = 0;
+int pr_this = 0;
+int pr_throw = 0;
+int pr_trait = 0;
+int pr_try = 0;
+int pr_type = 0;
+int pr_val = 0;
+int pr_var = 0;
+int pr_while = 0;
+int pr_with = 0;
+int pr_yield = 0;
+
 FILE *archivo_lexemas;
 
 void guardarLexema(char lexema[], char token[])
 {
     fprintf(archivo_lexemas, "%s|%s|%d\n", lexema, token, linea);
 }
-
-#line 582 "lex.yy.c"
-#line 583 "lex.yy.c"
+#line 617 "lex.yy.c"
+#line 618 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -797,10 +832,10 @@ YY_DECL
 		}
 
 	{
-#line 24 "analizador.l"
+#line 59 "analizador.l"
 
 
-#line 803 "lex.yy.c"
+#line 838 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -859,7 +894,7 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 26 "analizador.l"
+#line 61 "analizador.l"
 {
     caracteres += yyleng;
 }
@@ -867,329 +902,364 @@ YY_RULE_SETUP
 case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
-#line 30 "analizador.l"
+#line 65 "analizador.l"
 {
     caracteres += yyleng;
 }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 34 "analizador.l"
+#line 69 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_abstract++;
     guardarLexema(yytext, "PR_ABSTRACT");
 }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 40 "analizador.l"
+#line 76 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_case++;
     guardarLexema(yytext, "PR_CASE");
 }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 46 "analizador.l"
+#line 83 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_catch++;
     guardarLexema(yytext, "PR_CATCH");
 }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 52 "analizador.l"
+#line 90 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_class++;
     guardarLexema(yytext, "PR_CLASS");
 }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 58 "analizador.l"
+#line 97 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_def++;
     guardarLexema(yytext, "PR_DEF");
 }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 64 "analizador.l"
+#line 104 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_do++;
     guardarLexema(yytext, "PR_DO");
 }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 70 "analizador.l"
+#line 111 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_else++;
     guardarLexema(yytext, "PR_ELSE");
 }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 76 "analizador.l"
+#line 118 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_extends++;
     guardarLexema(yytext, "PR_EXTENDS");
 }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 82 "analizador.l"
+#line 125 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_final++;
     guardarLexema(yytext, "PR_FINAL");
 }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 88 "analizador.l"
+#line 132 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_finally++;
     guardarLexema(yytext, "PR_FINALLY");
 }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 94 "analizador.l"
+#line 139 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_for++;
     guardarLexema(yytext, "PR_FOR");
 }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 100 "analizador.l"
+#line 146 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_if++;
     guardarLexema(yytext, "PR_IF");
 }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 106 "analizador.l"
+#line 153 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_implicit++;
     guardarLexema(yytext, "PR_IMPLICIT");
 }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 112 "analizador.l"
+#line 160 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_import++;
     guardarLexema(yytext, "PR_IMPORT");
 }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 118 "analizador.l"
+#line 167 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_lazy++;
     guardarLexema(yytext, "PR_LAZY");
 }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 124 "analizador.l"
+#line 174 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_match++;
     guardarLexema(yytext, "PR_MATCH");
 }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 130 "analizador.l"
+#line 181 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_new++;
     guardarLexema(yytext, "PR_NEW");
 }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 136 "analizador.l"
+#line 188 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_object++;
     guardarLexema(yytext, "PR_OBJECT");
 }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 142 "analizador.l"
+#line 195 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_override++;
     guardarLexema(yytext, "PR_OVERRIDE");
 }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 148 "analizador.l"
+#line 202 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_package++;
     guardarLexema(yytext, "PR_PACKAGE");
 }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 154 "analizador.l"
+#line 209 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_private++;
     guardarLexema(yytext, "PR_PRIVATE");
 }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 160 "analizador.l"
+#line 216 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_protected++;
     guardarLexema(yytext, "PR_PROTECTED");
 }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 166 "analizador.l"
+#line 223 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_return++;
     guardarLexema(yytext, "PR_RETURN");
 }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 172 "analizador.l"
+#line 230 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_sealed++;
     guardarLexema(yytext, "PR_SEALED");
 }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 178 "analizador.l"
+#line 237 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_super++;
     guardarLexema(yytext, "PR_SUPER");
 }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 184 "analizador.l"
+#line 244 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_this++;
     guardarLexema(yytext, "PR_THIS");
 }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 190 "analizador.l"
+#line 251 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_throw++;
     guardarLexema(yytext, "PR_THROW");
 }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 196 "analizador.l"
+#line 258 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_trait++;
     guardarLexema(yytext, "PR_TRAIT");
 }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 202 "analizador.l"
+#line 265 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_try++;
     guardarLexema(yytext, "PR_TRY");
 }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 208 "analizador.l"
+#line 272 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_type++;
     guardarLexema(yytext, "PR_TYPE");
 }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 214 "analizador.l"
+#line 279 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_val++;
     guardarLexema(yytext, "PR_VAL");
 }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 220 "analizador.l"
+#line 286 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_var++;
     guardarLexema(yytext, "PR_VAR");
 }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 226 "analizador.l"
+#line 293 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_while++;
     guardarLexema(yytext, "PR_WHILE");
 }
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 232 "analizador.l"
+#line 300 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_with++;
     guardarLexema(yytext, "PR_WITH");
 }
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 238 "analizador.l"
+#line 307 "analizador.l"
 {
     caracteres += yyleng;
     cont_reservadas++;
+    pr_yield++;
     guardarLexema(yytext, "PR_YIELD");
 }
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 244 "analizador.l"
+#line 314 "analizador.l"
 {
     caracteres += yyleng;
     cont_booleanos++;
@@ -1198,7 +1268,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 250 "analizador.l"
+#line 320 "analizador.l"
 {
     caracteres += yyleng;
     cont_flotantes++;
@@ -1207,7 +1277,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 256 "analizador.l"
+#line 326 "analizador.l"
 {
     caracteres += yyleng;
     cont_enteros++;
@@ -1217,7 +1287,7 @@ YY_RULE_SETUP
 case 41:
 /* rule 41 can match eol */
 YY_RULE_SETUP
-#line 262 "analizador.l"
+#line 332 "analizador.l"
 {
     caracteres += yyleng;
     cont_cadenas++;
@@ -1226,7 +1296,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 268 "analizador.l"
+#line 338 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1235,7 +1305,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 274 "analizador.l"
+#line 344 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1244,7 +1314,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 280 "analizador.l"
+#line 350 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1253,7 +1323,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 286 "analizador.l"
+#line 356 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1262,7 +1332,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 292 "analizador.l"
+#line 362 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1271,7 +1341,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 298 "analizador.l"
+#line 368 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1280,7 +1350,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 304 "analizador.l"
+#line 374 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1289,7 +1359,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 310 "analizador.l"
+#line 380 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1298,7 +1368,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 316 "analizador.l"
+#line 386 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1307,7 +1377,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 322 "analizador.l"
+#line 392 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1316,7 +1386,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 328 "analizador.l"
+#line 398 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1325,7 +1395,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 334 "analizador.l"
+#line 404 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1334,7 +1404,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 340 "analizador.l"
+#line 410 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1343,7 +1413,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 346 "analizador.l"
+#line 416 "analizador.l"
 {
     caracteres += yyleng;
     cont_operadores++;
@@ -1352,7 +1422,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
-#line 352 "analizador.l"
+#line 422 "analizador.l"
 {
     caracteres += yyleng;
     cont_identificadores++;
@@ -1362,7 +1432,7 @@ YY_RULE_SETUP
 case 57:
 /* rule 57 can match eol */
 YY_RULE_SETUP
-#line 358 "analizador.l"
+#line 428 "analizador.l"
 {
     caracteres++;
     linea++;
@@ -1370,24 +1440,24 @@ YY_RULE_SETUP
 	YY_BREAK
 case 58:
 YY_RULE_SETUP
-#line 363 "analizador.l"
+#line 433 "analizador.l"
 {
     caracteres += yyleng;
 }
 	YY_BREAK
 case 59:
 YY_RULE_SETUP
-#line 367 "analizador.l"
+#line 437 "analizador.l"
 {
     caracteres += yyleng;
 }
 	YY_BREAK
 case 60:
 YY_RULE_SETUP
-#line 371 "analizador.l"
+#line 441 "analizador.l"
 ECHO;
 	YY_BREAK
-#line 1390 "lex.yy.c"
+#line 1460 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2392,7 +2462,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 371 "analizador.l"
+#line 441 "analizador.l"
 
 
 int main(int argc, char *argv[])
@@ -2416,6 +2486,7 @@ int main(int argc, char *argv[])
     if (archivo_lexemas == NULL)
     {
         printf("No se pudo crear lexemas.txt\n");
+        fclose(yyin);
         return 1;
     }
 
@@ -2424,6 +2495,7 @@ int main(int argc, char *argv[])
     yylex();
 
     printf("\n========== RESULTADOS ==========\n");
+
     printf("Cantidad de lineas: %d\n", linea);
     printf("Cantidad de caracteres: %d\n", caracteres);
     printf("Palabras reservadas: %d\n", cont_reservadas);
@@ -2433,6 +2505,44 @@ int main(int argc, char *argv[])
     printf("Booleanos: %d\n", cont_booleanos);
     printf("Cadenas: %d\n", cont_cadenas);
     printf("Operadores: %d\n", cont_operadores);
+
+    printf("\n===== PALABRAS RESERVADAS =====\n");
+
+    if (pr_abstract > 0) printf("abstract: %d\n", pr_abstract);
+    if (pr_case > 0) printf("case: %d\n", pr_case);
+    if (pr_catch > 0) printf("catch: %d\n", pr_catch);
+    if (pr_class > 0) printf("class: %d\n", pr_class);
+    if (pr_def > 0) printf("def: %d\n", pr_def);
+    if (pr_do > 0) printf("do: %d\n", pr_do);
+    if (pr_else > 0) printf("else: %d\n", pr_else);
+    if (pr_extends > 0) printf("extends: %d\n", pr_extends);
+    if (pr_final > 0) printf("final: %d\n", pr_final);
+    if (pr_finally > 0) printf("finally: %d\n", pr_finally);
+    if (pr_for > 0) printf("for: %d\n", pr_for);
+    if (pr_if > 0) printf("if: %d\n", pr_if);
+    if (pr_implicit > 0) printf("implicit: %d\n", pr_implicit);
+    if (pr_import > 0) printf("import: %d\n", pr_import);
+    if (pr_lazy > 0) printf("lazy: %d\n", pr_lazy);
+    if (pr_match > 0) printf("match: %d\n", pr_match);
+    if (pr_new > 0) printf("new: %d\n", pr_new);
+    if (pr_object > 0) printf("object: %d\n", pr_object);
+    if (pr_override > 0) printf("override: %d\n", pr_override);
+    if (pr_package > 0) printf("package: %d\n", pr_package);
+    if (pr_private > 0) printf("private: %d\n", pr_private);
+    if (pr_protected > 0) printf("protected: %d\n", pr_protected);
+    if (pr_return > 0) printf("return: %d\n", pr_return);
+    if (pr_sealed > 0) printf("sealed: %d\n", pr_sealed);
+    if (pr_super > 0) printf("super: %d\n", pr_super);
+    if (pr_this > 0) printf("this: %d\n", pr_this);
+    if (pr_throw > 0) printf("throw: %d\n", pr_throw);
+    if (pr_trait > 0) printf("trait: %d\n", pr_trait);
+    if (pr_try > 0) printf("try: %d\n", pr_try);
+    if (pr_type > 0) printf("type: %d\n", pr_type);
+    if (pr_val > 0) printf("val: %d\n", pr_val);
+    if (pr_var > 0) printf("var: %d\n", pr_var);
+    if (pr_while > 0) printf("while: %d\n", pr_while);
+    if (pr_with > 0) printf("with: %d\n", pr_with);
+    if (pr_yield > 0) printf("yield: %d\n", pr_yield);
 
     fclose(yyin);
     fclose(archivo_lexemas);
