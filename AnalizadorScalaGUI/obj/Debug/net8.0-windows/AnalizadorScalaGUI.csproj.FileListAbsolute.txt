@@ -1,0 +1,17 @@
+C:\Users\wallonix\Desktop\Pc\UNIVERSIDAD\Tareas sexto semestre\Compiladores\ProyectoCorto1Compiladores\AnalizadorScalaGUI\bin\Debug\net8.0-windows\AnalizadorScalaGUI.exe
+C:\Users\wallonix\Desktop\Pc\UNIVERSIDAD\Tareas sexto semestre\Compiladores\ProyectoCorto1Compiladores\AnalizadorScalaGUI\bin\Debug\net8.0-windows\AnalizadorScalaGUI.deps.json
+C:\Users\wallonix\Desktop\Pc\UNIVERSIDAD\Tareas sexto semestre\Compiladores\ProyectoCorto1Compiladores\AnalizadorScalaGUI\bin\Debug\net8.0-windows\AnalizadorScalaGUI.runtimeconfig.json
+C:\Users\wallonix\Desktop\Pc\UNIVERSIDAD\Tareas sexto semestre\Compiladores\ProyectoCorto1Compiladores\AnalizadorScalaGUI\bin\Debug\net8.0-windows\AnalizadorScalaGUI.dll
+C:\Users\wallonix\Desktop\Pc\UNIVERSIDAD\Tareas sexto semestre\Compiladores\ProyectoCorto1Compiladores\AnalizadorScalaGUI\bin\Debug\net8.0-windows\AnalizadorScalaGUI.pdb
+C:\Users\wallonix\Desktop\Pc\UNIVERSIDAD\Tareas sexto semestre\Compiladores\ProyectoCorto1Compiladores\AnalizadorScalaGUI\obj\Debug\net8.0-windows\AnalizadorScalaGUI.Form1.resources
+C:\Users\wallonix\Desktop\Pc\UNIVERSIDAD\Tareas sexto semestre\Compiladores\ProyectoCorto1Compiladores\AnalizadorScalaGUI\obj\Debug\net8.0-windows\AnalizadorScalaGUI.csproj.GenerateResource.cache
+C:\Users\wallonix\Desktop\Pc\UNIVERSIDAD\Tareas sexto semestre\Compiladores\ProyectoCorto1Compiladores\AnalizadorScalaGUI\obj\Debug\net8.0-windows\AnalizadorScalaGUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\wallonix\Desktop\Pc\UNIVERSIDAD\Tareas sexto semestre\Compiladores\ProyectoCorto1Compiladores\AnalizadorScalaGUI\obj\Debug\net8.0-windows\AnalizadorScalaGUI.AssemblyInfoInputs.cache
+C:\Users\wallonix\Desktop\Pc\UNIVERSIDAD\Tareas sexto semestre\Compiladores\ProyectoCorto1Compiladores\AnalizadorScalaGUI\obj\Debug\net8.0-windows\AnalizadorScalaGUI.AssemblyInfo.cs
+C:\Users\wallonix\Desktop\Pc\UNIVERSIDAD\Tareas sexto semestre\Compiladores\ProyectoCorto1Compiladores\AnalizadorScalaGUI\obj\Debug\net8.0-windows\AnalizadorScalaGUI.csproj.CoreCompileInputs.cache
+C:\Users\wallonix\Desktop\Pc\UNIVERSIDAD\Tareas sexto semestre\Compiladores\ProyectoCorto1Compiladores\AnalizadorScalaGUI\obj\Debug\net8.0-windows\AnalizadorScalaGUI.sourcelink.json
+C:\Users\wallonix\Desktop\Pc\UNIVERSIDAD\Tareas sexto semestre\Compiladores\ProyectoCorto1Compiladores\AnalizadorScalaGUI\obj\Debug\net8.0-windows\AnalizadorScalaGUI.dll
+C:\Users\wallonix\Desktop\Pc\UNIVERSIDAD\Tareas sexto semestre\Compiladores\ProyectoCorto1Compiladores\AnalizadorScalaGUI\obj\Debug\net8.0-windows\refint\AnalizadorScalaGUI.dll
+C:\Users\wallonix\Desktop\Pc\UNIVERSIDAD\Tareas sexto semestre\Compiladores\ProyectoCorto1Compiladores\AnalizadorScalaGUI\obj\Debug\net8.0-windows\AnalizadorScalaGUI.pdb
+C:\Users\wallonix\Desktop\Pc\UNIVERSIDAD\Tareas sexto semestre\Compiladores\ProyectoCorto1Compiladores\AnalizadorScalaGUI\obj\Debug\net8.0-windows\AnalizadorScalaGUI.genruntimeconfig.cache
+C:\Users\wallonix\Desktop\Pc\UNIVERSIDAD\Tareas sexto semestre\Compiladores\ProyectoCorto1Compiladores\AnalizadorScalaGUI\obj\Debug\net8.0-windows\ref\AnalizadorScalaGUI.dll
