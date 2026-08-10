@@ -8,7 +8,7 @@ namespace AnalizadorScalaGUI
     {
         // IMPORTANTEEEEEEEEEEEEE
         // ruta del analizador .exe
-        private readonly string rutaEjecutableAnalizador = @"C:\Users\wallonix\Desktop\Pc\UNIVERSIDAD\Tareas sexto semestre\Compiladores\ProyectoCorto1Compiladores\Analizador";
+        private readonly string rutaEjecutableAnalizador = @"C:\Users\wallonix\Desktop\Pc\UNIVERSIDAD\Tareas sexto semestre\Compiladores\ProyectoCorto1Compiladores\Analizador\analizador.exe";
         // carpeta donde el exe va a escribir lexemas.txt (y donde el programa lo leera igual)
         private readonly string carpetaTrabajo = @"C:\Users\wallonix\Desktop\Pc\UNIVERSIDAD\Tareas sexto semestre\Compiladores\ProyectoCorto1Compiladores\Analizador";
 

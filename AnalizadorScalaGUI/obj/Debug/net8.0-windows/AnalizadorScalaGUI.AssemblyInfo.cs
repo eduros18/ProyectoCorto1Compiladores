@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AnalizadorScalaGUI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+33280e7b9644d1c41fdd5af0548678b20111d138")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8339de8030f8ae7244c551e5ebc7b92006512da6")]
 [assembly: System.Reflection.AssemblyProductAttribute("AnalizadorScalaGUI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AnalizadorScalaGUI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
