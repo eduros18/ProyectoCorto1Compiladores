@@ -6,11 +6,13 @@ namespace AnalizadorScalaGUI
 {
     public partial class Form1 : Form
     {
-        // IMPORTANTEEEEEEEEEEEEE
-        // ruta del analizador .exe
-        private readonly string rutaEjecutableAnalizador = @"C:\Users\wallonix\Desktop\Pc\UNIVERSIDAD\Tareas sexto semestre\Compiladores\ProyectoCorto1Compiladores\Analizador\analizador.exe";
-        // carpeta donde el exe va a escribir lexemas.txt (y donde el programa lo leera igual)
-        private readonly string carpetaTrabajo = @"C:\Users\wallonix\Desktop\Pc\UNIVERSIDAD\Tareas sexto semestre\Compiladores\ProyectoCorto1Compiladores\Analizador";
+// Ruta principal del proyecto
+private readonly string raizProyecto =
+    Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", ".."));
+
+// Rutas del analizador
+private readonly string rutaEjecutableAnalizador;
+private readonly string carpetaTrabajo;
 
         private readonly AnalizadorService servicio = new AnalizadorService();
         private string? rutaArchivoSeleccionado = null;
@@ -24,13 +26,22 @@ namespace AnalizadorScalaGUI
                       lblIdentificadores = null!, lblBooleanos = null!, lblCadenas = null!, lblOperadores = null!;
         private DataGridView dgvLexemas = null!;
         private Label lblEstado = null!;
+public Form1()
+{
+    InitializeComponent();
 
-        public Form1()
-        {
-            InitializeComponent();
-            ArmarInterfaz();
-        }
+    carpetaTrabajo = Path.Combine(
+        raizProyecto,
+        "Analizador"
+    );
 
+    rutaEjecutableAnalizador = Path.Combine(
+        carpetaTrabajo,
+        "analizador.exe"
+    );
+
+    ArmarInterfaz();
+}
         private void ArmarInterfaz()
         {
             this.Text = "Analizador Léxico - Scala";
@@ -60,6 +71,7 @@ namespace AnalizadorScalaGUI
 
             lblEstado = new Label { Left = 170, Top = 260, Width = 800, ForeColor = System.Drawing.Color.DarkRed };
             this.Controls.Add(lblEstado);
+	    
 
             // apartado resumen de resultados
             var panelResumen = new GroupBox { Text = "Resumen general", Left = 10, Top = 295, Width = 960, Height = 90 };
@@ -165,6 +177,9 @@ namespace AnalizadorScalaGUI
 
                 lblEstado.ForeColor = System.Drawing.Color.Green;
                 lblEstado.Text = $"Analisis completo. {resultado.Lexemas.Count} lexemas encontrados.";
+
+		EjecutarModuloLepe();
+
             }
             catch (ArchivoVacioException)
             {
@@ -187,6 +202,93 @@ namespace AnalizadorScalaGUI
                 btnAnalizar.Enabled = true;
             }
         }
+
+private void EjecutarModuloLepe()
+{
+    try
+    {
+        string rutaLexemas =
+            Path.Combine(carpetaTrabajo, "lexemas.txt");
+
+        if (!File.Exists(rutaLexemas))
+        {
+            MessageBox.Show(
+                "No se encontro lexemas.txt para MongoDB y PDF.",
+                "Advertencia",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning
+            );
+
+            return;
+        }
+
+        var psi = new System.Diagnostics.ProcessStartInfo
+        {
+            FileName = "cmd.exe",
+
+            Arguments =
+                $"/c sbt \"runMain lepe.Integrador \\\"{rutaLexemas}\\\" \\\"{rutaArchivoSeleccionado}\\\"\"",
+
+            WorkingDirectory = raizProyecto,
+
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+
+            UseShellExecute = false,
+            CreateNoWindow = true
+        };
+
+        using var proceso =
+            System.Diagnostics.Process.Start(psi);
+
+        if (proceso == null)
+        {
+            MessageBox.Show(
+                "No se pudo iniciar el modulo de MongoDB y PDF."
+            );
+
+            return;
+        }
+
+        string salida =
+            proceso.StandardOutput.ReadToEnd();
+
+        string errores =
+            proceso.StandardError.ReadToEnd();
+
+        proceso.WaitForExit();
+
+        if (proceso.ExitCode == 0)
+        {
+            MessageBox.Show(
+                "Analisis guardado en MongoDB y reportes PDF generados.",
+                "Proceso completado",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
+        }
+        else
+        {
+            MessageBox.Show(
+                "El analisis lexico termino, pero hubo un problema con MongoDB/PDF.\n\n"
+                + errores,
+                "Advertencia",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning
+            );
+        }
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show(
+            "El analisis lexico termino correctamente, pero no se pudo ejecutar MongoDB/PDF.\n\n"
+            + ex.Message,
+            "Advertencia",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Warning
+        );
+    }
+}
 
         private void MostrarError(string mensaje)
         {
